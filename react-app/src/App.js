@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
@@ -8,6 +8,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import { getAllFriendRequests, getAllFriends, getAllMyFriendRequests } from './store/friends'
+import UserProfile from './components/UserProfile';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -18,11 +20,12 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
     })();
-  }, [dispatch]);
+  }, [loaded]);
 
   if (!loaded) {
     return null;
   }
+
 
   return (
     <BrowserRouter>
@@ -42,6 +45,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-profile' exact={true}>
+          <UserProfile />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

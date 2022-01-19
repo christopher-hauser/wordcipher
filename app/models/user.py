@@ -51,5 +51,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'bio': self.bio,
             'friended_me': [user.id for user in self.received_friends],
-            'friended_them': [user.id for user in self.friended]
+            'friended_them': [user.id for user in self.friended],
+            'friends': [user.id for user in self.received_friends if user in self.friended]
         }
