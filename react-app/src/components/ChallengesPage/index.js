@@ -22,12 +22,12 @@ function ChallengesPage() {
         <NewChallengeForm />
 
         <div>
+        <h2>Challenges you've sent:</h2>
         {myChallenges.length > 0 && (
             <>
-            <h2>Challenges you've sent:</h2>
             {myChallenges?.map(challenge => (
                 <SentChallenges challenge={challenge}/>
-            ))}
+                ))}
             </>
         )}
         {myChallenges.length === 0 && (

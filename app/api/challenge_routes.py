@@ -54,7 +54,6 @@ def send_challenge():
         db.session.add(challenge)
         db.session.commit()
         return challenge.to_dict()
-    print('ERRORS', form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}
 
 # EDIT EXISTING CHALLENGE
@@ -64,12 +63,13 @@ def edit_challenge(id):
     form = EditChallengeForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    if validate_on_submit():
+    if form.validate_on_submit():
         challenge = Challenge.query.get(id)
         challenge.word = form.data['word']
         db.session.commit()
         return {'challenge': challenge.to_dict()}
-    return form.errors
+    return {'errors': validation_errors_to_error_messages(form.errors)}
+
 
 
 # REMOVE EXISTING CHALLENGE

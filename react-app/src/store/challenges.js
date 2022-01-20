@@ -102,6 +102,7 @@ export const sendNewChallenge = challenge => async dispatch => {
 
   export default function (state = initialState, action) {
       let newState;
+      let index;
       switch (action.type) {
           case GET_CHALLENGES:
             newState = {...state}
@@ -113,19 +114,18 @@ export const sendNewChallenge = challenge => async dispatch => {
             return newState;
           case SEND_CHALLENGE:
             newState = {...state}
-            const myCurrentChallenges = newState['myChallenges']
-            newState['myChallenges'] = {
-                ...myCurrentChallenges,
-                [action.payload.id]: action.payload
-            }
+            newState['myChallenges'].push(action.payload)
             return newState
           case EDIT_CHALLENGE:
-            state['myChallenges'][action.payload.id] = action.payload
             newState = { ...state }
+            index = newState['myChallenges'].findIndex(challenge => challenge.id === action.payload.id)
+            state['myChallenges'].splice(index, 1, action.payload)
             return newState;
           case DELETE_CHALLENGE:
             newState = { ...state }
-            delete newState['myChallenges'][action.payload.id]
+            index = newState['myChallenges'].findIndex(challenge => challenge.id === action.payload.id)
+            delete newState['myChallenges'].splice(index, 1)
+            return newState;
           default:
               return state;
       }

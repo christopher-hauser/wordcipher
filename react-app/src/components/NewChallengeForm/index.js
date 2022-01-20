@@ -39,7 +39,7 @@ const NewChallengeForm = () => {
             setErrors(submitted)
         }
         else {
-            history.push('/')
+            window.location.reload(true)
         }
     }
 
