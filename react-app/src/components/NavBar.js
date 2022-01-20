@@ -33,6 +33,11 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to='/new-challenge' exact={true} activeClassName='active'>
+            Send Challenge to a Friend
+          </NavLink>
+        </li>
+        <li>
           <LogoutButton />
         </li>
       </ul>
