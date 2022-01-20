@@ -46,8 +46,8 @@ const NavBar = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink to='/new-challenge' exact={true} activeClassName='active'>
-            Send Challenge to a Friend
+          <NavLink to='/challenges' exact={true} activeClassName='active'>
+            Challenges
           </NavLink>
         </li>
         <li>

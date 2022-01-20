@@ -16,5 +16,7 @@ class Challenge(db.Model):
             'challengerId': self.challengerId,
             'recipientId': self.recipientId,
             'word': self.word,
-            'status': self.status
+            'status': self.status,
+            'challengerName': self.users_challenger.username,
+            'challengeeName': self.users_challengee.username
         }

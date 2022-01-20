@@ -15,7 +15,7 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 # GET CHALLENGES I'VE RECEIVED
-@challenge_routes.route('/<int:id>/')
+@challenge_routes.route('/<int:id>')
 @login_required
 def get_my_challenges(id):
     challenges = Challenge.query.filter_by(recipientId=id).all()

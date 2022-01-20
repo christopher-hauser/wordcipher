@@ -105,11 +105,11 @@ export const sendNewChallenge = challenge => async dispatch => {
       switch (action.type) {
           case GET_CHALLENGES:
             newState = {...state}
-            newState['challenges'] = action.payload
+            newState['challenges'] = action.payload.challenges
             return newState;
           case GET_MY_CHALLENGES:
             newState = {...state}
-            newState['myChallenges'] = action.payload
+            newState['myChallenges'] = action.payload.challenges
             return newState;
           case SEND_CHALLENGE:
             newState = {...state}

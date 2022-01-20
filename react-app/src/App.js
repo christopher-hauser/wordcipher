@@ -12,6 +12,7 @@ import { getAllFriendRequests, getAllFriends, getAllMyFriendRequests } from './s
 import UserProfile from './components/UserProfile';
 import NewChallengeForm from './components/NewChallengeForm'
 import FriendsPage from './components/FriendsPage';
+import ChallengesPage from './components/ChallengesPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,8 +52,8 @@ function App() {
         <ProtectedRoute path='/my-profile' exact={true}>
           <UserProfile />
         </ProtectedRoute>
-        <ProtectedRoute path='/new-challenge' exact={true}>
-          <NewChallengeForm />
+        <ProtectedRoute path='/challenges' exact={true}>
+          <ChallengesPage />
         </ProtectedRoute>
         <ProtectedRoute path='/my-friends' exact={true}>
           <FriendsPage />

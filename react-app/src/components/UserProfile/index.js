@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux'
-import FriendRequest from '../FriendRequest';
-import FriendBlock from '../FriendBlock';
 
 
 function UserProfile() {
     const user = useSelector(state => state.session.user)
-    
+
     return (
         <>
             <div>
