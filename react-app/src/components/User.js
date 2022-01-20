@@ -10,6 +10,7 @@ function User() {
   const sentRequest = useSelector(state => Boolean(state.session.user.friended_them.includes(+userId)))
   const [sentFriendRequest, setSentFriendRequest] = useState(sentRequest);
   const loggedInUserId = useSelector(state => state.session.user.id)
+  const alreadyFriends = useSelector(state => state.session.user.friends.includes(+userId))
 
   useEffect(() => {
     if (!userId) {
@@ -49,11 +50,14 @@ function User() {
         <strong>Email</strong> {user.email}
       </li>
     </ul>
-    {loggedInUserId !== +userId && sentFriendRequest && (
+    {loggedInUserId !== +userId && sentFriendRequest && !alreadyFriends && (
       <button onClick={undoRequest}>Undo Friend Request</button>
     )}
-    {loggedInUserId !== +userId && !sentFriendRequest && (
+    {loggedInUserId !== +userId && !sentFriendRequest && !alreadyFriends &&  (
       <button onClick={submitRequest}>Send Friend Request</button>
+    )}
+    {loggedInUserId !== +userId && alreadyFriends && (
+      <p>You and {user.username} are friends!</p>
     )}
     </>
   );

@@ -10,8 +10,10 @@ friend_routes = Blueprint('friends', __name__)
 @login_required
 def get_friends(id):
     user = User.query.get(id)
-    friends = user.friends.all()
-    return {'friends': [friend.to_dict() for friend in friends]}
+    friend_requests = user.received_friends.all()
+    my_friend_requests = user.friended.all()
+
+    return {'friends': [friend.to_dict() for friend in friend_requests if friend in my_friend_requests]}
 
 #GET FRIEND REQUESTS
 @friend_routes.route('/<int:id>/friend-requests')
@@ -65,7 +67,7 @@ def accept_friend_request(id):
     new_friend = User.query.get(friendee_id)
     user = User.query.get(friender_id)
 
-    user.friends.append(new_friend)
+    user.received_friends.append(new_friend)
     db.session.commit()
     return new_friend.to_dict()
 
@@ -77,12 +79,10 @@ def decline_friend_request(id):
     data = request.get_json()
     friendee_id = id
     friender_id = data["frienderId"]
-    new_friend = User.query.get(friendee_id)
-    user = User.query.get(friender_id)
-    data = request.get_json()
-    friender_id = data["frienderId"]
+    user = User.query.get(friendee_id)
     attempted_friender = User.query.get(friender_id)
+    data = request.get_json()
 
-    attempted_friender.friends.remove(user)
+    attempted_friender.friended.remove(user)
     db.session.commit()
     return attempted_friender.to_dict()

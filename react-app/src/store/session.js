@@ -64,7 +64,7 @@ export const authenticate = () => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     if (data.errors) {
-      return data;
+      return;
     }
 
     dispatch(setUser(data));
@@ -240,7 +240,8 @@ export const declineFriendRequest = (frienderId, friendeeId) => async dispatch =
 }
 
 export default function reducer(state = initialState, action) {
-  let newState
+  let newState;
+  let index;
   switch (action.type) {
     case SET_USER:
       return { user: action.payload }
@@ -265,17 +266,19 @@ export default function reducer(state = initialState, action) {
       return newState;
     case UNDO_REQUEST:
       newState = state;
-      console.log(action.payload)
-      const index = newState.user.friended_them.findIndex(el => el === action.payload.id)
+      index = newState.user.friended_them.findIndex(el => el === action.payload.id)
       newState.user.friended_them.splice(index, 1)
       return newState;
     case ACCEPT_REQUEST:
       newState = state;
       newState.user.friends.push(action.payload.id)
+      index = newState.user.friended_me.findIndex(el => el === action.payload.id)
+      newState.user.friended_me.splice(index, 1)
       return newState;
     case DECLINE_REQUEST:
       newState = state;
-      delete newState.user.friended_me.find(el => el === action.payload.id)
+      const index = newState.user.friended_me.findIndex(el => el === action.payload.id)
+      newState.user.friended_me.splice(index, 1)
       return newState;
     default:
       return state;
