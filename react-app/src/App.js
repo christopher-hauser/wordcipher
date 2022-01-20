@@ -10,6 +10,9 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import { getAllFriendRequests, getAllFriends, getAllMyFriendRequests } from './store/friends'
 import UserProfile from './components/UserProfile';
+import NewChallengeForm from './components/NewChallengeForm'
+import FriendsPage from './components/FriendsPage';
+import ChallengesPage from './components/ChallengesPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +51,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/my-profile' exact={true}>
           <UserProfile />
+        </ProtectedRoute>
+        <ProtectedRoute path='/challenges' exact={true}>
+          <ChallengesPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-friends' exact={true}>
+          <FriendsPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
