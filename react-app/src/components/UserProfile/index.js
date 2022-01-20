@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllFriendRequests, getAllFriends, acceptFriendRequest, declineFriendRequest } from '../../store/session';
+import { getAllFriendRequests, getAllFriends, acceptFriendRequest, declineFriendRequest, removeOneFriend } from '../../store/session';
 import FriendRequest from '../FriendRequest';
+import FriendBlock from '../FriendBlock';
 
 
 function UserProfile() {
@@ -49,7 +50,7 @@ function UserProfile() {
             <div>
                 <h2>Friends</h2>
                 {friends.map(friend => (
-                    <li>{friend.username}</li>
+                    <FriendBlock friend={friend} />
                 ))}
                 <h2>Friend Requests</h2>
                 {user.friended_me.length === 0 && (

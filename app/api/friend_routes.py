@@ -81,8 +81,27 @@ def decline_friend_request(id):
     friender_id = data["frienderId"]
     user = User.query.get(friendee_id)
     attempted_friender = User.query.get(friender_id)
-    data = request.get_json()
 
     attempted_friender.friended.remove(user)
     db.session.commit()
     return attempted_friender.to_dict()
+
+
+# UNFRIEND SOMEONE
+
+@friend_routes.route('/<int:id>/remove-friend', methods=["POST"])
+@login_required
+def remove_friend(id):
+    data = request.get_json()
+    friend_to_remove_id = id
+    user_id = data["frienderId"]
+    user = User.query.get(user_id)
+    friend = User.query.get(friend_to_remove_id)
+
+    user.friended.remove(friend)
+    user.received_friends.remove(friend)
+    friend.friended.remove(user)
+    friend.received_friends.remove(user)
+
+    db.session.commit()
+    return friend.to_dict()

@@ -8,6 +8,7 @@ const SEND_REQUEST = 'session/SEND_REQUEST'
 const UNDO_REQUEST = 'session/UNDO_REQUEST'
 const ACCEPT_REQUEST = 'session/ACCEPT_REQUEST'
 const DECLINE_REQUEST = 'session/DECLINE_REQUEST'
+const REMOVE_FRIEND = 'session/REMOVE_FRIEND'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -51,6 +52,11 @@ const acceptRequest = friendRequest => ({
 const declineRequest = friendRequest => ({
   type: DECLINE_REQUEST,
   payload: friendRequest
+})
+
+const removeFriend = friend => ({
+  type: REMOVE_FRIEND,
+  payload: friend
 })
 
 const initialState = { user: null };
@@ -142,100 +148,116 @@ export const signUp = (username, email, password) => async (dispatch) => {
 export const getAllFriends = id => async dispatch => {
   const res = await fetch(`/api/friends/${id}`)
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(getFriends(data))
-      return data
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(getFriends(data))
+    return data
   }
 }
 
 export const getAllFriendRequests = id => async dispatch => {
   const res = await fetch(`/api/friends/${id}/friend-requests`)
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(getFriendRequests(data))
-      return data
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(getFriendRequests(data))
+    return data
   }
 }
 
 export const getAllMyFriendRequests = id => async dispatch => {
   const res = await fetch(`/api/friends/${id}/my-friend-requests`)
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(getMyFriendRequests(data))
-      return data
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(getMyFriendRequests(data))
+    return data
   }
 }
 
 export const sendFriendRequest = (frienderId, friendeeId) => async dispatch => {
   const res = await fetch(`/api/friends/${friendeeId}/new-friend-request`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ frienderId, friendeeId })
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ frienderId, friendeeId })
   })
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(sendRequest(data))
-      return data;
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(sendRequest(data))
+    return data;
   }
 }
 
 export const undoFriendRequest = (frienderId, friendeeId) => async dispatch => {
   const res = await fetch(`/api/friends/${friendeeId}/undo-friend-request`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ frienderId, friendeeId })
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ frienderId, friendeeId })
   })
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(undoRequest(data))
-      return data;
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(undoRequest(data))
+    return data;
   }
 }
 
 export const acceptFriendRequest = (frienderId, friendeeId) => async dispatch => {
   const res = await fetch(`/api/friends/${friendeeId}/accept-friend-request`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ frienderId, friendeeId })
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ frienderId, friendeeId })
   })
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(acceptRequest(data))
-      return data;
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(acceptRequest(data))
+    return data;
   }
 }
 
 export const declineFriendRequest = (frienderId, friendeeId) => async dispatch => {
   const res = await fetch(`/api/friends/${friendeeId}/decline-friend-request`, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ frienderId, friendeeId })
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ frienderId, friendeeId })
   })
   if (res.ok) {
-      const data = await res.json();
-      if (data.errors) {
-          return data.errors
-      }
-      dispatch(declineRequest(data))
-      return data;
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(declineRequest(data))
+    return data;
+  }
+}
+
+export const removeOneFriend = (frienderId, friendeeId) => async dispatch => {
+  const res = await fetch(`/api/friends/${friendeeId}/remove-friend`, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ frienderId, friendeeId })
+  })
+  if (res.ok) {
+    const data = await res.json();
+    if (data.errors) {
+      return data.errors
+    }
+    dispatch(removeFriend(data))
+    return data;
   }
 }
 
@@ -277,8 +299,13 @@ export default function reducer(state = initialState, action) {
       return newState;
     case DECLINE_REQUEST:
       newState = state;
-      const index = newState.user.friended_me.findIndex(el => el === action.payload.id)
+      index = newState.user.friended_me.findIndex(el => el === action.payload.id)
       newState.user.friended_me.splice(index, 1)
+      return newState;
+    case REMOVE_FRIEND:
+      newState = state;
+      index = newState.user.friends.findIndex(el => el === action.payload.id)
+      newState.user.friends.splice(index, 1)
       return newState;
     default:
       return state;
