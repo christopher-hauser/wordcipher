@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile';
 import NewChallengeForm from './components/NewChallengeForm'
 import FriendsPage from './components/FriendsPage';
 import ChallengesPage from './components/ChallengesPage';
+import ListsPage from './components/ListsPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -57,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/my-friends' exact={true}>
           <FriendsPage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/lists' exact={true}>
+          <ListsPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

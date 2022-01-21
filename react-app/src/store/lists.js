@@ -129,12 +129,12 @@ export const deleteOneWord = word => async dispatch => {
         method: 'DELETE',
     })
     if (res.ok) {
-        dispatch(deleteList(id))
+        dispatch(deleteWord(word.listId))
         return 'Deleted.'
     }
 }
 
-const initialState = {'lists': {}, 'selected_list': {}}
+const initialState = {'lists': [], 'selected_list': {}}
 
 export default function (state = initialState, action) {
     let newState;
@@ -142,7 +142,7 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case GET_LISTS:
             newState = {...state}
-            newState['lists'] = action.payload
+            newState['lists'] = action.payload.lists
             return newState;
         case GET_A_LIST:
             newState = {...state}
@@ -156,7 +156,7 @@ export default function (state = initialState, action) {
         case EDIT_LIST:
             newState = {...state}
             index = newState['lists'].findIndex(list => list.id === action.payload.id)
-            newState['lists'].splice(index, 1, action,payload)
+            newState['lists'].splice(index, 1, action.payload)
             newState['selected_list'] = action.payload
             return newState;
         case DELETE_LIST:

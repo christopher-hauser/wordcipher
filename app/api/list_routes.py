@@ -25,7 +25,7 @@ def get_one_lists(id):
 # CREATE NEW LIST
 @list_routes.route('/', methods=["POST"])
 @login_required
-def create_new_list(id):
+def create_new_list():
     data = request.get_json()
     form = NewListForm()
     form['csrf_token'].data = request.cookies['csrf_token']
