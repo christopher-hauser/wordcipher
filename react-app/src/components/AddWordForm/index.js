@@ -1,27 +1,29 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewList, getAllLists } from "../../store/lists";
+import { addNewWord } from "../../store/lists";
+import { getOneList } from "../../store/lists";
 
-const NewListForm = () => {
+const AddWordForm = ({list}) => {
     const user = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
-    const [name, setName] = useState('');
+    const [word, setWord] = useState('');
     const dispatch = useDispatch();
 
     const submit = async e => {
         e.preventDefault();
 
-        const newList = {
+        const newWord = {
             'userId': user.id,
-            name
+            'listId': list.id,
+            word
         }
 
-        let submitted = await dispatch (addNewList(newList))
+        let submitted = await dispatch(addNewWord(newWord))
         if (Array.isArray(submitted)) {
             setErrors(submitted)
-        }
-        else {
-            dispatch(getAllLists())
+        } else {
+            dispatch(getOneList(list.id))
+            setWord('')
         }
     }
 
@@ -34,19 +36,18 @@ const NewListForm = () => {
                     ))}
                 </div>
                 <div>
-                    <label htmlFor='name'>List Name</label>
                     <input
-                        name='name'
-                        placeholder="Enter list name..."
-                        value={name}
-                        onChange={e => setName(e.target.value)}
+                        name='word'
+                        placeholder="Add a word!"
+                        value={word}
+                        onChange={e => setWord(e.target.value)}
                     />
                 </div>
-                <button type='submit'>Create List</button>
+                <button type='submit'>Add word!</button>
             </form>
         </div>
     )
 
 }
 
-export default NewListForm;
+export default AddWordForm;

@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { addNewList, getAllLists } from "../../store/lists";
+import { editThisList, getAllLists } from "../../store/lists";
 
-const NewListForm = () => {
+const EditListForm = ({ list }) => {
     const user = useSelector(state => state.session.user)
+    const [editOpen, setEditOpen] = useState(false);
     const [errors, setErrors] = useState([]);
     const [name, setName] = useState('');
     const dispatch = useDispatch();
@@ -11,17 +12,19 @@ const NewListForm = () => {
     const submit = async e => {
         e.preventDefault();
 
-        const newList = {
-            'userId': user.id,
+        const editedList = {
+            'id': list.id,
+            'userId': list.userId,
             name
         }
 
-        let submitted = await dispatch (addNewList(newList))
+        let submitted = await dispatch(editThisList(editedList))
         if (Array.isArray(submitted)) {
             setErrors(submitted)
         }
         else {
             dispatch(getAllLists())
+            setName('');
         }
     }
 
@@ -37,16 +40,16 @@ const NewListForm = () => {
                     <label htmlFor='name'>List Name</label>
                     <input
                         name='name'
-                        placeholder="Enter list name..."
+                        placeholder="Update list name..."
                         value={name}
                         onChange={e => setName(e.target.value)}
                     />
                 </div>
-                <button type='submit'>Create List</button>
+                <button type='submit'>Update</button>
             </form>
         </div>
     )
 
 }
 
-export default NewListForm;
+export default EditListForm;

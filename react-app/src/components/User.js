@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux'
-import { declineFriendRequest, getAllFriendRequests, getAllFriends, getAllMyFriendRequests, sendFriendRequest, undoFriendRequest } from '../store/session';
+import { sendFriendRequest, undoFriendRequest } from '../store/session';
 
 function User() {
   const dispatch = useDispatch()

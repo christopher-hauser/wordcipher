@@ -83,7 +83,7 @@ export const addNewList = list => async dispatch => {
 }
 
 export const editThisList = list => async dispatch => {
-    const res = await fetch(`/api/lists/`, {
+    const res = await fetch(`/api/lists/${list.id}`, {
         method: 'PUT',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(list)
@@ -125,11 +125,11 @@ export const addNewWord = word => async dispatch => {
 }
 
 export const deleteOneWord = word => async dispatch => {
-    const res = await fetch(`/api/lists/${word.listId}/add-word`, {
+    const res = await fetch(`/api/lists/delete-word/${word.id}`, {
         method: 'DELETE',
     })
     if (res.ok) {
-        dispatch(deleteWord(word.listId))
+        dispatch(deleteWord(word.id))
         return 'Deleted.'
     }
 }
@@ -170,18 +170,10 @@ export default function (state = initialState, action) {
             return newState;
         case DELETE_WORD:
             newState = {...state}
-            index = newState['selected_list'].findIndex(word => word.id === action.payload.id)
-            newState['selected_list'].splice(index, 1)
+            index = newState['selected_list']['words'].findIndex(word => word.id === action.payload.id)
+            newState['selected_list']['words'].splice(index, 1)
             return newState;
         default:
             return state;
     }
 }
-
-// const GET_LISTS = 'lists/GET_LISTS'
-// const GET_A_LIST = 'lists/GET_A_LIST'
-// const NEW_LIST = 'lists/NEW_LIST'
-// const EDIT_LIST = 'lists/EDIT_LIST'
-// const DELETE_LIST = 'lists/DELETE_LIST'
-// const ADD_WORD = 'lists/ADD_WORD'
-// const DELETE_WORD = 'lists/DELETE_WORD'

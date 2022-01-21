@@ -68,6 +68,7 @@ def delete_list(id):
 @list_routes.route('/<int:id>/add-word', methods=['POST'])
 @login_required
 def add_word_to_list(id):
+    data = request.get_json()
     form = NewWordForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -84,7 +85,7 @@ def add_word_to_list(id):
 
 
 # REMOVE WORD FROM LIST
-@list_routes.route('/<int:id>/add-word', methods=['DELETE'])
+@list_routes.route('/delete-word/<int:id>', methods=['DELETE'])
 @login_required
 def delete_word_from_list(id):
     word = Word.query.get(id)

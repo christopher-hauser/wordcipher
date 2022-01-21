@@ -1,0 +1,15 @@
+.list-page-container {
+    margin: 0% 20%;
+    display: flex;
+    flex-direction: column;
+}
+
+.new-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    background-color: lightsalmon;
+    width: 50%;
+}

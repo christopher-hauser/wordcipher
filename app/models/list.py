@@ -15,5 +15,6 @@ class List(db.Model):
             'id': self.id,
             'userId': self.userId,
             'name': self.name,
-            'words': self.words
+            'words': [word.to_dict() for word in self.words],
+            'username': self.users.username
         }
