@@ -14,5 +14,6 @@ class List(db.Model):
         return {
             'id': self.id,
             'userId': self.userId,
-            'name': self.name
+            'name': self.name,
+            'words': self.words
         }
