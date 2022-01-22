@@ -3,14 +3,25 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addNewWord } from "../../store/lists";
 import { getOneList } from "../../store/lists";
 
-const AddWordForm = ({list}) => {
+const AddWordForm = ({ list }) => {
     const user = useSelector(state => state.session.user)
     const [errors, setErrors] = useState([]);
     const [word, setWord] = useState('');
     const dispatch = useDispatch();
 
+    const validate = () => {
+        const errors = [];
+        if (word.length !== 5) {
+            errors.push('Word must be exactly 5 characters.')
+        }
+        return errors;
+    }
+
     const submit = async e => {
         e.preventDefault();
+
+        let errors = validate();
+        if (errors.length > 0) return setErrors(errors);
 
         const newWord = {
             'userId': user.id,
@@ -18,32 +29,32 @@ const AddWordForm = ({list}) => {
             word
         }
 
-        let submitted = await dispatch(addNewWord(newWord))
-        if (Array.isArray(submitted)) {
-            setErrors(submitted)
-        } else {
-            dispatch(getOneList(list.id))
-            setWord('')
-        }
+        await dispatch(addNewWord(newWord))
+        dispatch(getOneList(list.id))
+        setWord('')
     }
 
     return (
         <div>
             <form onSubmit={submit}>
-                <div className="errors">
+                <div className="error">
                     {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className="error-item" key={ind}>{error}</div>
                     ))}
                 </div>
-                <div>
-                    <input
-                        name='word'
-                        placeholder="Add a word!"
-                        value={word}
-                        onChange={e => setWord(e.target.value)}
-                    />
+                <div id='add-word-container'>
+                    <div>
+                        <input
+                            id='add-word-input'
+                            name='word'
+                            placeholder="Type your word..."
+                            value={word}
+                            onChange={e => setWord(e.target.value)}
+                        />
+                    </div>
+                    <button className='list-page-button' type='submit'>Add!</button>
+
                 </div>
-                <button type='submit'>Add word!</button>
             </form>
         </div>
     )

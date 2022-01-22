@@ -23,6 +23,7 @@ const NewListForm = () => {
         }
         else {
             dispatch(getAllLists())
+            setName('')
         }
     }
 

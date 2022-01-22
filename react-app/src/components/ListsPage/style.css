@@ -6,29 +6,47 @@
     min-width: 950px;
 }
 
+#list-background-image-container {
+    display: flex;
+    justify-content: center;
+    background-image: url('https://www.thesprucecrafts.com/thmb/-Zvh_AupqflDPHBghds4GE1JT0Q=/1333x1000/smart/filters:no_upscale()/how-many-letter-tiles-are-in-scrabble-410933_hero_3077-e4f81bffe842462aadfa3413c03e4d43.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1333px 1000px;
+    width: 100%;
+    border-bottom: 2px solid white;
+}
+
 .new-list-container {
+    background-color: rgba(0, 0, 0, 0.705);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-self: center;
-    width: 50%;
-    margin: 2%;
+    width: 60%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
+    border: 1px solid white;
+
 }
 
 #lists-title {
     font-size: 30px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     margin-bottom: 0px;
     color: white;
+    opacity: 1;
 }
 
 #list-explain {
     font-size: 20px;
     font-family: 'Nunito', sans-serif;
-    font-weight: 100;
+    font-weight: 300;
     color: white;
+    opacity: 1;
 }
 
 #player-lists {
@@ -36,8 +54,15 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(136, 136, 136);
-    width: 50%;
+    width: 100%;
+    height: 480px;
+    transition: 0.2s;
+    overflow-y: scroll;
 }
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
 
 #browse-list-title {
     font-size: 20px;
@@ -50,4 +75,19 @@
 #select-list-text {
     color: white;
     font-weight: 200;
+}
+
+#lists-and-instructions {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.top-of-player-lists {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(136, 136, 136);
+    border-bottom: 2px solid white;
+    height: 120px;
 }

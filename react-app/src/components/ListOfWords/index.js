@@ -9,22 +9,33 @@ const ListOfWords = () => {
 
     return (
         <>
-            <h2>Words</h2>
+            <div id='top-of-words'>
+                <h2 id='words-title'>WORDS</h2>
+                {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && (
+                    <AddWordForm list={selectedList} />
+                )}
+            </div>
             {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && (
                 <>
-                    <AddWordForm list={selectedList} />
-                    {selectedList.words.map(word => (
-                          <SingleWord word={word} />
+                    <div id='word-list-container'>
+                        {selectedList.words.map(word => (
+                            <SingleWord word={word} />
                         )
-                    )}
-
+                        )}
+                    </div>
                 </>
             )}
 
-            {user.id !== selectedList.userId && (
+            {user.id !== selectedList.userId && Object.keys(selectedList).length > 0 && (
                 <>
-                <h4>No cheating!</h4>
-                <p>Play from this list to find out the words for yourself.</p>
+                    <h4 id='no-cheating'>No cheating!</h4>
+                    <p id='word-instructions'>Play from this list to find out the words for yourself.</p>
+                </>
+            )}
+
+            {Object.keys(selectedList).length === 0 && (
+                <>
+                <p>No list currently selected.</p>
                 </>
             )}
         </>

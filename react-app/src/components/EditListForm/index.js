@@ -2,9 +2,9 @@ import React, { useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { editThisList, getAllLists } from "../../store/lists";
 
-const EditListForm = ({ list }) => {
+const EditListForm = ({ list, editState, sendDataToParent }) => {
     const user = useSelector(state => state.session.user)
-    const [editOpen, setEditOpen] = useState(false);
+    const [editOpen, setEditOpen] = useState(editState);
     const [errors, setErrors] = useState([]);
     const [name, setName] = useState('');
     const dispatch = useDispatch();
@@ -25,29 +25,34 @@ const EditListForm = ({ list }) => {
         else {
             dispatch(getAllLists())
             setName('');
+            setEditOpen(!editOpen)
+            sendDataToParent(!editOpen)
         }
     }
 
     return (
-        <div>
-            <form onSubmit={submit}>
-                <div className="errors">
-                    {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
-                    ))}
-                </div>
+        <>
+            {editOpen && (
                 <div>
-                    <label htmlFor='name'>List Name</label>
-                    <input
-                        name='name'
-                        placeholder="Update list name..."
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                    />
+                    <form onSubmit={submit}>
+                        <div className="errors">
+                            {errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            ))}
+                        </div>
+                        <div>
+                            <input
+                                className="edit-list-input"
+                                name='name'
+                                placeholder="Update list name..."
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                            />
+                        </div>
+                    </form>
                 </div>
-                <button type='submit'>Update</button>
-            </form>
-        </div>
+            )}
+        </>
     )
 
 }
