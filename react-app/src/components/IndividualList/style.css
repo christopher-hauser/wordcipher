@@ -6,12 +6,8 @@
 .lists-and-words {
     display: flex;
     width: 100%;
-    background-color: rgb(151, 245, 245);
 }
 
-#player-lists {
-    width: 50%;
-}
 
 #player-list-words {
     width: 50%;

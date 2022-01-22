@@ -29,6 +29,7 @@ html, body {
     margin: 0 2%;
     justify-content: space-between;
     list-style-type: none;
+    min-width: 1200px;
 }
 
 #nav-links a {

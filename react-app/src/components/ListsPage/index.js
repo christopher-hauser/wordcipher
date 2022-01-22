@@ -17,13 +17,15 @@ function ListsPage() {
     return (
         <div className='list-page-container'>
             <div className='new-list-container'>
-                <h2>Create a new list</h2>
+                <h2 id='lists-title'>LISTS</h2>
+                <h3 id='list-explain'>Create a new list of words for other users to play from!</h3>
                 <NewListForm />
             </div>
             <div>
                 <div className='lists-and-words'>
                     <div id='player-lists'>
-                        <h2>Browse Player Lists</h2>
+                        <h2 id='browse-list-title'>BROWSE PLAYER LISTS</h2>
+                        <h3 id='select-list-text'>Select from a list below.</h3>
                         {lists.length > 0 && (
                             <>
                                 {lists.map(list => (

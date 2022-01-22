@@ -1,0 +1,28 @@
+#create-list-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#new-list-input {
+    border: none;
+    padding: 0 8px;
+}
+
+#create-list-button {
+    border: 1px solid rgb(36, 29, 19);
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: 0.2s;
+}
+
+#create-list-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(36, 29, 19);
+}
