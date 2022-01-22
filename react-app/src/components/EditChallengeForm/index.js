@@ -1,6 +1,6 @@
 import React, {  useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { editThisChallenge, sendNewChallenge } from "../../store/challenges";
+import { editThisChallenge, getAllMyChallenges, sendNewChallenge } from "../../store/challenges";
 
 const EditChallengeForm = ({ challenge }) => {
     const [errors, setErrors] = useState([])
@@ -23,7 +23,8 @@ const EditChallengeForm = ({ challenge }) => {
             setErrors(submitted)
         }
         else {
-            window.location.reload(true)
+            dispatch(getAllMyChallenges(user.id))
+            setWord('')
         }
     }
 

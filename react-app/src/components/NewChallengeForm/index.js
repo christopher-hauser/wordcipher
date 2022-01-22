@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { sendNewChallenge } from "../../store/challenges";
+import { getAllMyChallenges, sendNewChallenge } from "../../store/challenges";
 
 const NewChallengeForm = () => {
     const [errors, setErrors] = useState([])
@@ -9,7 +9,6 @@ const NewChallengeForm = () => {
     const [friends, setFriends] = useState([])
     const [word, setWord] = useState('')
     const user = useSelector(state => state.session.user)
-    const history = useHistory()
     const dispatch = useDispatch()
 
     useEffect(async () => {
@@ -39,7 +38,7 @@ const NewChallengeForm = () => {
             setErrors(submitted)
         }
         else {
-            window.location.reload(true)
+            dispatch(getAllMyChallenges(user.id))
         }
     }
 

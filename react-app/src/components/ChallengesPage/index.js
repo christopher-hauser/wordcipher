@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { getAllChallenges, getAllMyChallenges } from '../../store/challenges';
 import NewChallengeForm from '../NewChallengeForm';

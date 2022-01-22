@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { deleteThisChallenge } from '../../store/challenges';
+import { deleteThisChallenge, getAllMyChallenges } from '../../store/challenges';
 import EditChallengeForm from '../EditChallengeForm';
 
 
 function SentChallenges({ challenge }) {
     const dispatch = useDispatch()
-    const history = useHistory();
     const [editOpen, setEditOpen] = useState(false);
 
-    const handleDelete = () => {
-        dispatch(deleteThisChallenge(challenge.id))
-        window.location.reload(true)
+    const handleDelete = async () => {
+        await dispatch(deleteThisChallenge(challenge.id))
+        dispatch(getAllMyChallenges(challenge.challengerId))
+
     }
 
     const openPopup = () => {
