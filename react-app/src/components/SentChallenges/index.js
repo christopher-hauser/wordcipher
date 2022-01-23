@@ -14,22 +14,30 @@ function SentChallenges({ challenge }) {
 
     }
 
+    const sendDataToParent = (data) => {
+        setEditOpen(data)
+    }
+
     const openPopup = () => {
         setEditOpen(!editOpen)
     }
 
     return (
         <>
-        <h3>{challenge.challengeeName}</h3>
-        <p>{challenge.word}</p>
-        {!editOpen && (
-            <button onClick={openPopup}>Edit Word</button>
-        )}
-        {editOpen && (
-            <EditChallengeForm challenge={challenge} />
-        )}
-        <p>{challenge.status}</p>
-        <button onClick={handleDelete}>Delete Challenge</button>
+            <div id={`challenge-sent-${challenge.id}`} className='challenge-sent-container'>
+                <h3>{challenge.challengeeName}</h3>
+                <p>{challenge.word}</p>
+                <p>{challenge.status}</p>
+                <div className='sent-challenge-options'>
+                    {!editOpen && (
+                        <button className='sent-button' onClick={openPopup}>Edit</button>
+                    )}
+                    {editOpen && (
+                        <EditChallengeForm challenge={challenge} editState={editOpen} sendDataToParent={sendDataToParent} />
+                    )}
+                    <button className='sent-button' onClick={handleDelete}>Delete</button>
+                </div>
+            </div>
         </>
     )
 }

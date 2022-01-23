@@ -4,6 +4,7 @@ import { getAllChallenges, getAllMyChallenges } from '../../store/challenges';
 import NewChallengeForm from '../NewChallengeForm';
 import SentChallenges from '../SentChallenges';
 import ReceivedChallenges from '../ReceivedChallenges';
+import './style.css'
 
 function ChallengesPage() {
     const user = useSelector(state => state.session.user)
@@ -18,36 +19,52 @@ function ChallengesPage() {
 
     return (
         <>
-        <h2>Send a challenge!</h2>
-        <NewChallengeForm />
+            <div id='challenges-page-container'>
+                <div id='list-background-image-container'>
+                    <div className='new-list-container'>
+                        <h2 id='lists-title'>CHALLENGES</h2>
+                        <h3 id='list-explain'>Send a challenge to a friend!</h3>
+                        <NewChallengeForm />
+                    </div>
+                </div>
+                <div className='lists-and-words'>
+                    <div id='challenges-sent'>
+                        <div id='top-of-challenges-sent'>
+                            <h2>SENT</h2>
+                        </div>
+                        <div id='bottom-challenges-sent'>
+                            {myChallenges.length > 0 && (
+                                <>
+                                    {myChallenges?.map(challenge => (
+                                        <SentChallenges challenge={challenge} />
+                                    ))}
+                                </>
+                            )}
+                            {myChallenges.length === 0 && (
+                                <p>Try sending your friend a challenge!</p>
+                            )}
+                        </div>
+                    </div>
 
-        <div>
-        <h2>Challenges you've sent:</h2>
-        {myChallenges.length > 0 && (
-            <>
-            {myChallenges?.map(challenge => (
-                <SentChallenges challenge={challenge}/>
-                ))}
-            </>
-        )}
-        {myChallenges.length === 0 && (
-            <p>Try sending your friend a challenge!</p>
-        )}
-        </div>
-
-        <div>
-        {challenges.length > 0 && (
-        <>
-        <h2>Challenges you've received:</h2>
-        {challenges?.map(challenge => (
-            <ReceivedChallenges challenge={challenge}/>
-        ))}
-        </>
-        )}
-        {challenges.length === 0 && (
-            <p>No challenges at this time.</p>
-        )}
-        </div>
+                    <div id='challenges-received'>
+                        <div id='top-of-challenges-received'>
+                            <h2>RECEIVED</h2>
+                        </div>
+                        <div id='challenges-received-list'>
+                            {challenges.length > 0 && (
+                                <>
+                                    {challenges?.map(challenge => (
+                                        <ReceivedChallenges challenge={challenge} />
+                                    ))}
+                                </>
+                            )}
+                            {challenges.length === 0 && (
+                                <p>No challenges at this time.</p>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </>
     )

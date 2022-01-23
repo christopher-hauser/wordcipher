@@ -15,6 +15,24 @@ const ListOfWords = () => {
                     <AddWordForm list={selectedList} />
                 )}
             </div>
+            {user.id !== selectedList.userId && Object.keys(selectedList).length > 0 && (
+                <>
+                    <h4 id='no-cheating'>No cheating!</h4>
+                    <p id='word-instructions'>Play from this list to find out the words for yourself.</p>
+                </>
+            )}
+
+            {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && selectedList.words.length === 0 && (
+                <>
+                    <p>Add words to your list for other users to play from.</p>
+                </>
+            )}
+
+            {Object.keys(selectedList).length === 0 && (
+                <>
+                    <p>No list currently selected.</p>
+                </>
+            )}
             {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && (
                 <>
                     <div id='word-list-container'>
@@ -26,18 +44,6 @@ const ListOfWords = () => {
                 </>
             )}
 
-            {user.id !== selectedList.userId && Object.keys(selectedList).length > 0 && (
-                <>
-                    <h4 id='no-cheating'>No cheating!</h4>
-                    <p id='word-instructions'>Play from this list to find out the words for yourself.</p>
-                </>
-            )}
-
-            {Object.keys(selectedList).length === 0 && (
-                <>
-                <p>No list currently selected.</p>
-                </>
-            )}
         </>
     )
 }

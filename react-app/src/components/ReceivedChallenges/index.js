@@ -4,9 +4,13 @@ function ReceivedChallenges({ challenge }) {
 
     return (
         <>
-        <h3>{challenge.challengeeName}</h3>
-        <p>{challenge.status}</p>
-        <button>Play</button>
+            <div id={`challenge-${challenge.id}`} className='received-challenge-container'>
+                <h3 className='challenger-name'>{challenge.challengerName}</h3>
+                <div className='status-play'>
+                    <p className='status-text'>{challenge.status}</p>
+                    <button className='received-play-button'>Play</button>
+                </div>
+            </div>
         </>
     )
 }

@@ -2,9 +2,10 @@ import React, {  useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { editThisChallenge, getAllMyChallenges, sendNewChallenge } from "../../store/challenges";
 
-const EditChallengeForm = ({ challenge }) => {
+const EditChallengeForm = ({ challenge, editState, sendDataToParent }) => {
     const [errors, setErrors] = useState([])
     const [word, setWord] = useState('')
+    const [editOpen, setEditOpen] = useState(editState);
     const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
@@ -18,6 +19,19 @@ const EditChallengeForm = ({ challenge }) => {
             'word': word,
         }
 
+        const validate = () => {
+            let errors = [];
+            if (word.length !== 5) errors.push('Word must be exactly 5 characters.')
+            return errors;
+        }
+
+        const these_errors = validate();
+
+        if (these_errors.length > 0) {
+            setErrors(these_errors);
+            return;
+        }
+
         let submitted = await dispatch(editThisChallenge(editedChallenge))
         if (Array.isArray(submitted)) {
             setErrors(submitted)
@@ -25,28 +39,29 @@ const EditChallengeForm = ({ challenge }) => {
         else {
             dispatch(getAllMyChallenges(user.id))
             setWord('')
+            setEditOpen(!editOpen)
+            sendDataToParent(!editOpen)
         }
     }
 
 
     return (
         <div>
-            <form onSubmit={submit}>
+            <form className='edit-challenge-word' onSubmit={submit}>
                 <div className="errors">
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
                     ))}
                 </div>
                 <div>
-                    <label htmlFor='word'>Challenge Word</label>
                     <input
+                        className="edit-challenge-input"
                         name='word'
-                        placeholder="Enter your word..."
+                        placeholder="Update..."
                         value={word}
                         onChange={e => setWord(e.target.value)}
                     />
                 </div>
-                <button type='submit'>Update</button>
             </form>
         </div>
     )

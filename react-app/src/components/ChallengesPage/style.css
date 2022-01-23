@@ -1,0 +1,201 @@
+#challenges-page-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20%;
+    min-width: 950px;
+}
+
+#new-challenge-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#new-challenge-inputs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#new-challenge-inputs button {
+    border: 1px solid rgb(36, 29, 19);
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 18px;
+    transition: 0.2s;
+
+}
+
+#new-challenge-inputs button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(36, 29, 19);
+}
+
+#new-challenge-inputs input {
+    width: 100px;
+    margin: 0px 20px;
+}
+
+
+.challenge-error-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.challenge-error-item {
+    color: rgb(226, 55, 55);
+}
+
+#challenges-sent {
+    width: 50%;
+    display: flex;
+    flex-direction:column;
+    background-color: rgb(221, 208, 190);
+}
+
+#challenges-received {
+    width: 50%;
+    background-color: rgb(136, 136, 136);
+}
+
+#top-of-challenges-sent {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    border-bottom: 2px solid white;
+}
+
+
+#top-of-challenges-sent h2 {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    margin-bottom: 0px;
+    color: black;
+}
+
+#top-of-challenges-received {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    border-bottom: 2px solid white;
+}
+
+
+#top-of-challenges-received h2 {
+    font-size: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 100;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.received-challenge-container {
+    display: flex;
+    margin: 10px 20px;
+    border-bottom: 1px solid white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+}
+
+.challenge-sent-container {
+    display: flex;
+    margin: 10px 20px;
+    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    height: 100px;
+    min-width: 460px;
+}
+
+.status-play {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.received-play-button {
+    border: 1px solid rgb(36, 29, 19);
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-left: 20px;
+}
+
+.received-play-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(36, 29, 19);
+}
+
+.challenger-name {
+    color: white;
+    font-size: 18px;
+}
+
+.status-text {
+    color: white;
+}
+
+.sent-button {
+    border: 1px solid rgb(36, 29, 19);
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 18px;
+    transition: 0.2s;
+    margin-left: 10px;
+}
+
+.sent-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(36, 29, 19);
+}
+
+.sent-challenge-options {
+    display: flex;
+    align-items: center;
+}
+
+.edit-challenge-word {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.edit-challenge-input {
+    width: 100px;
+}
+
+.errors {
+    font-size: 14px;
+    color:rgb(226, 55, 55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#bottom-challenges-sent {
+    height: 520px;
+    overflow-y: scroll;
+}
+
+#challenges-received-list {
+    height: 520px;
+    overflow-y: scroll;
+}
