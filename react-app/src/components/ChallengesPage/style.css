@@ -60,7 +60,7 @@
 
 #challenges-received {
     width: 50%;
-    background-color: rgb(136, 136, 136);
+    background-color: rgb(58, 58, 58);
 }
 
 #top-of-challenges-sent {
@@ -136,6 +136,7 @@
     cursor: pointer;
     color: white;
     background-color: rgb(36, 29, 19);
+    border: 1px solid white;
 }
 
 .challenger-name {

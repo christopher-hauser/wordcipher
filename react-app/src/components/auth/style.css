@@ -12,7 +12,7 @@
 
 #left-image-div {
     background-image: url('https://images.unsplash.com/photo-1561651188-d207bbec4ec3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8d29yZHxlbnwwfHwwfHw%3D&w=1000&q=80');
-    background-size: 1000px 1000px;
+    background-size: 1333px 1000px;
     background-position: center;
     background-repeat: no-repeat;
     height: 105%;
@@ -25,7 +25,7 @@
     box-sizing: border-box;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(245, 242, 237);
+    background-color: rgb(244, 242, 243);
     min-width: 600px;
     width: 50%;
     height: 103%;
@@ -40,7 +40,7 @@
     height: 100%;
     margin: 10%;
     width: 500px;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 5px;
     background-color: rgb(221, 208, 190);
 }

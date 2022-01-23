@@ -20,11 +20,11 @@ const FriendRequest = ({ friendRequest }) => {
     return (
         <>
         {!user.friends.includes(friendRequest.id) && (
-            <>
-            <p>{friendRequest.username}</p>
-            <button onClick={acceptRequest}>Accept</button>
-            <button onClick={declineRequest}>Decline</button>
-            </>
+            <div className='friend-request-container'>
+                <h3 className='friend-request-username'>{friendRequest.username}</h3>
+                <button className='accept-request' onClick={acceptRequest}>Accept</button>
+                <button className='decline-request' onClick={declineRequest}>Decline</button>
+            </div>
         )}
         </>
     )

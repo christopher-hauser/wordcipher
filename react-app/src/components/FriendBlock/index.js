@@ -14,10 +14,10 @@ const FriendBlock = ({ friend }) => {
     }
 
     return (
-        <div>
-            <p>{friend.username}</p>
+        <>
+            <p id={`friendusername-${friend.id}`}>{friend.username}</p>
             <button onClick={removeThisFriend}>Unfriend</button>
-        </div>
+        </>
     )
 }
 

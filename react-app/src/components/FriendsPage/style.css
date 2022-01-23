@@ -1,0 +1,219 @@
+#friends-page-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 20%;
+    background-color: rgb(221, 208, 190);
+    height: 90.75%;
+    min-width: 1000px;
+}
+
+#friends-title {
+    margin: 20px 30px;
+    font-size: 24px;
+    font-weight: 300;
+    border-bottom: 1px solid white;
+    text-align: center;
+    color: white;
+}
+
+#friends-background {
+    width: 100%;
+    height: 250px;
+    background-image: url('https://www.temptationgifts.com/media/catalog/product/t/e/temptation-gifts-tg13000-friends-scrabble-decoration-lifestyle.jpg');
+    background-position-y: 83%;
+    background-position-x: 50%;
+    background-size: 875px 875px;
+    border-bottom: 4px solid white;
+}
+
+#friends-and-requests {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    min-width: 1000px;
+}
+
+#left-friends {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 75%;
+    border-right: 4px solid white;
+    height: 100%;
+}
+
+#right-requests {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(58, 58, 58);
+}
+
+#right-requests h2 {
+    font-size: 24px;
+    font-weight: 300;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+#right-requests p {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 200;
+    margin: 30px 30px;
+    color: white;
+}
+
+.friend-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+    margin: 10px 0px 10px 0px;
+}
+
+.friend-container:hover {
+    cursor: pointer;
+}
+
+.friend-container p {
+    color: white;
+}
+
+.friend-container button {
+    height: 30px;
+    width: 80px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+.friend-container button:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    background-color:rgb(224, 88, 88);
+    color: white;
+}
+
+#friends-blocks-container {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 100%;
+    border-right: 4px solid white;
+    padding: 0px 5px 0px 10px;
+    background-color: rgba(36, 29, 19, 0.623);
+    overflow-y: scroll;
+}
+
+#friend-list-and-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+#outer-friend-info-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+}
+
+#friend-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+    margin: 50px 0px;
+    border: 2px solid white;
+}
+
+#friend-selected {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid white;
+    margin: 10px 0px 10px 0px;
+    background-color:rgba(36, 29, 19);
+}
+
+.friend-selected p {
+    color: white;
+}
+
+.friend-selected button {
+    height: 30px;
+    width: 80px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+.friend-selected button:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    background-color:rgb(224, 88, 88);
+    color: white;
+}
+
+.friend-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.friend-first-letter {
+    font-weight: 500;
+    font-size: 40px;
+    color: white;
+}
+
+
+#selected-friend-pro-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    border: 2px solid white;
+    border-radius: 500px;
+    width: 100px;
+    height: 100px;
+    background-color:rgb(72, 21, 139);
+    margin-top: 50px;
+}
+
+.friend-request-container {
+    display: flex;
+    height: 50px;
+    justify-content: space-between;
+    align-content: center;
+    border: 1px solid white;
+    width: 220px;
+}
+
+.friend-request-username {
+    margin: 0;
+    color: white;
+    font-weight: 200;
+    font-size: 20px;
+}
+
+.accept-request {
+    height: 30px;
+    width: 40px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
+
+.decline-request {
+    height: 30px;
+    width: 40px;
+    border: 1px solid black;
+    transition: 0.5s;
+}
