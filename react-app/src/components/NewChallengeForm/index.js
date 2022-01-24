@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from "react-router-dom";
-import { sendNewChallenge } from "../../store/challenges";
+import { getAllMyChallenges, sendNewChallenge } from "../../store/challenges";
 
 const NewChallengeForm = () => {
     const [errors, setErrors] = useState([])
@@ -9,7 +9,6 @@ const NewChallengeForm = () => {
     const [friends, setFriends] = useState([])
     const [word, setWord] = useState('')
     const user = useSelector(state => state.session.user)
-    const history = useHistory()
     const dispatch = useDispatch()
 
     useEffect(async () => {
@@ -25,6 +24,13 @@ const NewChallengeForm = () => {
         return data;
     }
 
+    const validate = () => {
+        let errors = [];
+        if (word.length !== 5) errors.push('Word must be exactly 5 characters.')
+        if (!friend) errors.push('Please select a friend to send your word to.')
+        return errors;
+    }
+
     const submit = async e => {
         e.preventDefault();
 
@@ -34,26 +40,35 @@ const NewChallengeForm = () => {
             'word': word,
         }
 
+        let errors = validate();
+
+        if (errors.length > 0) {
+            setErrors(errors);
+            return;
+        }
+
         let submitted = await dispatch(sendNewChallenge(newChallenge))
         if (Array.isArray(submitted)) {
             setErrors(submitted)
         }
         else {
-            window.location.reload(true)
+            dispatch(getAllMyChallenges(user.id))
+            setErrors([])
+            setFriend('')
+            setWord('')
         }
     }
 
 
     return (
         <div>
-            <form onSubmit={submit}>
-                <div className="errors">
+            <form id='new-challenge-form' onSubmit={submit}>
+                <div className="challenge-error-div">
                     {errors.map((error, ind) => (
-                        <div key={ind}>{error}</div>
+                        <div className="challenge-error-item" key={ind}>{error}</div>
                     ))}
                 </div>
-                <div>
-                    <label htmlFor='recipientId'>Friend</label>
+                <div id='new-challenge-inputs'>
                     <select
                         name='recipientId'
                         placeholder="Select a friend..."
@@ -64,20 +79,18 @@ const NewChallengeForm = () => {
                         {friends.map((friend) => {
                             const friendId = parseInt(friend.id)
                             return (
-                            <option value={friendId}>{friend.username}</option>
-                        )})}
+                                <option value={friendId}>{friend.username}</option>
+                            )
+                        })}
                     </select>
-                </div>
-                <div>
-                    <label htmlFor='word'>Challenge Word</label>
                     <input
                         name='word'
-                        placeholder="Enter your word..."
+                        placeholder="Enter word..."
                         value={word}
                         onChange={e => setWord(e.target.value)}
                     />
+                    <button type='submit'>Send</button>
                 </div>
-                <button type='submit'>Send Challenge</button>
             </form>
         </div>
     )

@@ -7,12 +7,25 @@ import './style.css'
 const IndividualList = ({ list }) => {
     const user = useSelector(state => state.session.user);
     const firstList = useSelector(state => state.lists.lists[0])
+    const selectedList = useSelector(state => state.lists.selected_list)
     const [editOpen, setEditOpen] = useState(false)
     const dispatch = useDispatch()
 
-    const openList = () => {
-        dispatch(getOneList(list.id))
+    const openList = async () => {
+        let previousSelectedList = document.getElementById(`list-container-${selectedList.id}`)
+
+        const opened = await dispatch(getOneList(list.id))
+
+        if (opened) {
+            if (previousSelectedList) {
+                previousSelectedList.className = 'list-container';
+            }
+            let currentSelectedList = document.getElementById(`list-container-${list.id}`)
+            currentSelectedList.className = 'active-list';
+        }
     }
+
+
 
     const openFirstList = () => {
         dispatch(getOneList(firstList.id))
@@ -20,6 +33,10 @@ const IndividualList = ({ list }) => {
 
     const openPopup = () => {
         setEditOpen(!editOpen)
+    }
+
+    const sendDataToParent = (data) => {
+        setEditOpen(data)
     }
 
     const deleteList = async () => {
@@ -31,22 +48,29 @@ const IndividualList = ({ list }) => {
     }
 
     return (
-        <div className="list-container" onClick={openList}>
-            <h3 id={`list-${list.name}`}>{list.name}</h3>
-            <h4>{list.username}</h4>
-            {list.userId !== user.id && (
-                <button>Play</button>
-            )}
-            {list.userId === user.id && (
-                <>
-                {}
-                <button onClick={openPopup}>Edit List Name</button>
-                {editOpen && (
-                    <EditListForm list={list}/>
+        <div className="list-container" id={`list-container-${list.id}`} onClick={openList}>
+            <div>
+                <h3 className='list-name' id={`list-${list.name}`}>{list.name}</h3>
+                <h4 className="list-username">{list.username}</h4>
+            </div>
+            <div className="list-options-div">
+                {list.userId !== user.id && (
+                    <button className="list-page-button">Play</button>
                 )}
-                <button onClick={deleteList}>Delete List</button>
-                </>
-            )}
+                {list.userId === user.id && (
+                    <>
+                        <div>
+                            {!editOpen && (
+                                <button className="list-page-button" onClick={openPopup}>Edit</button>
+                            )}
+                            {editOpen && (
+                                <EditListForm list={list} editState={editOpen} sendDataToParent={sendDataToParent} />
+                            )}
+                        </div>
+                        <button className="list-page-button" onClick={deleteList}>Delete</button>
+                    </>
+                )}
+            </div>
         </div>
     )
 }

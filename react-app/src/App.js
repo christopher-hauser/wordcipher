@@ -6,14 +6,12 @@ import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
-import { getAllFriendRequests, getAllFriends, getAllMyFriendRequests } from './store/friends'
 import UserProfile from './components/UserProfile';
-import NewChallengeForm from './components/NewChallengeForm'
 import FriendsPage from './components/FriendsPage';
 import ChallengesPage from './components/ChallengesPage';
 import ListsPage from './components/ListsPage';
+import GamePage from './components/GamePage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -44,11 +42,8 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <GamePage />
         </ProtectedRoute>
         <ProtectedRoute path='/my-profile' exact={true}>
           <UserProfile />

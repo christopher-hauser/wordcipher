@@ -7,7 +7,7 @@ const SingleWord = ({ word }) => {
 
 
     const onDelete = async () => {
-        const deleted =  await dispatch(deleteOneWord(word))
+        const deleted = await dispatch(deleteOneWord(word))
         if (deleted) {
             dispatch(getOneList(word.listId))
         }
@@ -15,8 +15,10 @@ const SingleWord = ({ word }) => {
 
     return (
         <>
-            <p>{word.word}</p>
-            <button onClick={onDelete}>Remove</button>
+            <div className='word-container'>
+                <p>{word.word}</p>
+                <button className='remove-word-button' onClick={onDelete}>Remove</button>
+            </div>
         </>
     )
 }

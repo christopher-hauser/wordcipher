@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import AddWordForm from '../AddWordForm';
-import { deleteOneWord } from '../../store/lists';
 import SingleWord from '../SingleWord';
 
 const ListOfWords = () => {
@@ -10,24 +9,41 @@ const ListOfWords = () => {
 
     return (
         <>
-            <h2>Words</h2>
+            <div id='top-of-words'>
+                <h2 id='words-title'>WORDS</h2>
+                {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && (
+                    <AddWordForm list={selectedList} />
+                )}
+            </div>
+            {user.id !== selectedList.userId && Object.keys(selectedList).length > 0 && (
+                <>
+                    <h4 id='no-cheating'>No cheating!</h4>
+                    <p id='word-instructions'>Play from this list to find out the words for yourself.</p>
+                </>
+            )}
+
+            {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && selectedList.words.length === 0 && (
+                <>
+                    <p>Add words to your list for other users to play from.</p>
+                </>
+            )}
+
+            {Object.keys(selectedList).length === 0 && (
+                <>
+                    <p>No list currently selected.</p>
+                </>
+            )}
             {user.id === selectedList.userId && Object.keys(selectedList).length > 0 && (
                 <>
-                    <AddWordForm list={selectedList} />
-                    {selectedList.words.map(word => (
-                          <SingleWord word={word} />
+                    <div id='word-list-container'>
+                        {selectedList.words.map(word => (
+                            <SingleWord word={word} />
                         )
-                    )}
-
+                        )}
+                    </div>
                 </>
             )}
 
-            {user.id !== selectedList.userId && (
-                <>
-                <h4>No cheating!</h4>
-                <p>Play from this list to find out the words for yourself.</p>
-                </>
-            )}
         </>
     )
 }
