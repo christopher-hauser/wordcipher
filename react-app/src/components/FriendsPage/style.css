@@ -73,10 +73,12 @@
     align-items: center;
     border: 1px solid white;
     margin: 10px 0px 10px 0px;
+    transition: 0.2s;
 }
 
 .friend-container:hover {
     cursor: pointer;
+    background-color: rgba(221, 208, 190, 0.37);
 }
 
 .friend-container p {
@@ -85,9 +87,10 @@
 
 .friend-container button {
     height: 30px;
-    width: 80px;
+    width: 70px;
     border: 1px solid black;
     transition: 0.5s;
+    font-size: 14px;
 }
 
 .friend-container button:hover {
@@ -133,7 +136,7 @@
     border: 2px solid white;
 }
 
-#friend-selected {
+.friend-selected {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -148,9 +151,10 @@
 
 .friend-selected button {
     height: 30px;
-    width: 80px;
+    width: 70px;
     border: 1px solid black;
     transition: 0.5s;
+    font-size: 14px;
 }
 
 .friend-selected button:hover {
@@ -192,28 +196,57 @@
     display: flex;
     height: 50px;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
     border: 1px solid white;
     width: 220px;
+
 }
 
 .friend-request-username {
-    margin: 0;
+    margin: 0 0 0 10px;
     color: white;
     font-weight: 200;
     font-size: 20px;
 }
 
 .accept-request {
-    height: 30px;
+    height: 40px;
     width: 40px;
-    border: 1px solid black;
+    border: none;
     transition: 0.5s;
+    background: none;
+    color: white;
+}
+
+.accept-request svg {
+    height: 30px;
+    width: 30px;
+}
+
+.accept-request:hover {
+    color: rgb(60, 168, 60);
+    cursor: pointer;
 }
 
 .decline-request {
-    height: 30px;
+    height: 40px;
     width: 40px;
-    border: 1px solid black;
     transition: 0.5s;
+    border: none;
+    background: none;
+    color: white;
+}
+
+.decline-request:hover {
+    color: rgb(168, 60, 60);
+    cursor: pointer;
+}
+
+.decline-request svg {
+    height: 30px;
+    width: 30px;
+}
+
+.friend-button-container {
+    margin-top: 5px;
 }

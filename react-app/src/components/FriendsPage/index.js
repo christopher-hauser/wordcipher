@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import FriendRequest from '../FriendRequest';
 import FriendBlock from '../FriendBlock';
 import './style.css'
 import FriendInfo from '../FriendInfo';
+import { getOneFriend } from '../../store/session';
 
 function FriendsPage() {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const [friends, setFriends] = useState([])
     const [friendRequests, setFriendRequests] = useState([])
-    const [selectedFriend, setSelectedFriend] = useState('')
+    const selectedFriend = useSelector(state => state.session.selected_user)
+    // const [selectedFriend, setSelectedFriend] = useState('')
 
     useEffect(async () => {
         const incRequests = await loadFriendRequests(user.id)
@@ -35,20 +38,22 @@ function FriendsPage() {
         return data;
     }
 
-    const selectFriend = e => {
+    const selectFriend = async e => {
+        let previousSelectedFriend;
         if (selectedFriend) {
-            document.getElementById(`friend-${selectedFriend.id}`).className = 'friend-container'
+            previousSelectedFriend = document.getElementById(`friend-${selectedFriend.id}`)
         }
 
         const friendId = e.target.id.split('-')[1];
         const friend = friends.find(friend => friend.id == friendId);
-        const set = setSelectedFriend(friend);
+        const friendGot = await dispatch(getOneFriend(friend))
 
-        if (set) {
-            document.getElementById(`friend-${selectedFriend.id}`).className = 'friend-selected';
+        if (friendGot) {
+            if (previousSelectedFriend) {
+                previousSelectedFriend.className = 'friend-container'
+            }
+                document.getElementById(`friend-${friendGot.id}`).className = 'friend-selected';
         }
-
-        return friend;
     }
 
 

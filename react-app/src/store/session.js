@@ -1,6 +1,8 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const GET_USER = 'session/GET_USER'
+const GET_FRIEND = 'session/GET_FRIEND'
 const GET_FRIENDS = 'session/GET_FRIENDS'
 const GET_FRIEND_REQUESTS = 'session/GET_FRIEND_REQUESTS'
 const GET_MY_FRIEND_REQUESTS = 'session/GET_MY_FRIEND_REQUESTS'
@@ -10,6 +12,7 @@ const ACCEPT_REQUEST = 'session/ACCEPT_REQUEST'
 const DECLINE_REQUEST = 'session/DECLINE_REQUEST'
 const REMOVE_FRIEND = 'session/REMOVE_FRIEND'
 
+
 const setUser = (user) => ({
   type: SET_USER,
   payload: user
@@ -17,6 +20,16 @@ const setUser = (user) => ({
 
 const removeUser = () => ({
   type: REMOVE_USER,
+})
+
+const getUser = user => ({
+  type: GET_USER,
+  payload: user
+})
+
+const getFriend = friend => ({
+  type: GET_FRIEND,
+  payload: friend
 })
 
 const getFriends = (friends) => ({
@@ -148,6 +161,17 @@ export const signUp = (username, email, password) => async (dispatch) => {
   }
 }
 
+export const getOneUser = user => async dispatch => {
+  await dispatch(getUser(user));
+  return user;
+}
+
+export const getOneFriend = friend => async dispatch => {
+  await dispatch(getFriend(friend));
+  return friend;
+}
+
+
 export const getAllFriends = id => async dispatch => {
   const res = await fetch(`/api/friends/${id}`)
   if (res.ok) {
@@ -271,7 +295,15 @@ export default function reducer(state = initialState, action) {
     case SET_USER:
       return { user: action.payload }
     case REMOVE_USER:
-      return { user: null }
+      return { user: null };
+    case GET_USER:
+      newState = state;
+      newState.selected_user = action.payload;
+      return newState;
+    case GET_FRIEND:
+      newState = state;
+      newState.selected_user = action.payload;
+      return newState;
     case GET_FRIENDS:
       newState = state;
       newState.user.friends = action.payload
