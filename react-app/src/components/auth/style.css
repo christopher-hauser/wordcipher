@@ -120,6 +120,7 @@
     background-color: white;
     font-size: 18px;
     transition: 0.2s;
+    margin: 0px 10px;
 }
 
 .submit-button:hover {

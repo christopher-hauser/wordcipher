@@ -118,3 +118,115 @@ html, body {
     color: white;
     background-color: rgb(36, 29, 19);
 }
+
+#user-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0% 20%;
+    background-color: rgba(131, 207, 188, 0.904);
+    height: 90.5%;
+}
+
+.users-name {
+    display: flex;
+    border: 1px solid white;
+}
+
+.users-name a {
+    text-decoration: none;
+    color:white;
+}
+
+#user-blocks-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2% 5%;
+    overflow-y: scroll;
+}
+
+.users-block {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border:4px solid white;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    padding: 40px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(209, 110, 110);
+}
+
+#explore-title {
+    margin: 50px 30px 10px 30px;
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.users-block-username {
+    color: white;
+    font-size: 24px;
+    font-weight: 200;
+    margin-bottom: 0;
+}
+
+.users-block-points {
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.users-name-points {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.users-options p {
+    color: white;
+    font-size: 16px;
+    font-weight: 200;
+}
+
+.send-friend-button {
+    height: 40px;
+    width: 160px;
+    border: 1px solid black;
+    transition: 0.5s;
+    font-size: 14px;
+}
+
+.send-friend-button:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    background-color:rgb(56, 132, 202);
+    color: white;
+}
+
+.already-friended {
+    height: 40px;
+    width: 160px;
+    border: 1px solid white;
+    transition: 0.5s;
+    font-size: 14px;
+    background-color:rgb(56, 132, 202);
+    color: white;
+}
+
+.already-friended:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    background-color:rgb(47, 107, 163);
+    color: white;
+}
+
+#explore-title-container {
+    border-bottom: 4px solid white;
+    width: 100%;
+}
