@@ -1,8 +1,10 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
-const GET_USER = 'session/GET_USER'
-const GET_FRIEND = 'session/GET_FRIEND'
+
+const GET_USER = 'session/GET_USER';
+const GET_FRIEND = 'session/GET_FRIEND';
+
 const GET_FRIENDS = 'session/GET_FRIENDS'
 const GET_FRIEND_REQUESTS = 'session/GET_FRIEND_REQUESTS'
 const GET_MY_FRIEND_REQUESTS = 'session/GET_MY_FRIEND_REQUESTS'

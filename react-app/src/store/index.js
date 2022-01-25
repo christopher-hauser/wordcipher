@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session';
 import challenges from './challenges'
 import lists from './lists'
+import game from './game'
 
 const rootReducer = combineReducers({
   session,
   challenges,
-  lists
+  lists,
+  game
 });
 
 
