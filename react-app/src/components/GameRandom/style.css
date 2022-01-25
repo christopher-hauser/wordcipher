@@ -1,0 +1,73 @@
+#game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 90%;
+    align-items: center;
+    padding-top: 150px;
+    background-color: rgb(229, 213, 192);
+}
+
+.guess-word {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+}
+
+.guess-letter {
+    width: 50px;
+    height: 50px;
+    font-size: 40px;
+    text-align: center;
+    margin: 0px 15px;
+}
+
+.green {
+    background: rgb(46, 145, 46);
+    color: white;
+}
+
+.yellow {
+
+    background: rgb(180, 159, 63);
+    color: white;
+}
+
+.gray {
+    background: rgb(66, 62, 62);
+    color: white;
+}
+
+.active-guess-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(36, 29, 19);
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.active-guess-button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: rgb(36, 29, 19);
+}
+
+.disabled-button {
+    display: none;
+}
+
+.guess-letter-container {
+    width: 80%;
+    min-width: 440px;
+}
+
+.guess-button-container {
+    width: 10%;
+}

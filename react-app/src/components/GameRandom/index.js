@@ -1,30 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setThisGuess } from "../../store/game";
 import './style.css'
 
 function GameRandom() {
     const this_word = 'ABOUT'; //FETCH FROM API
-    const dispatch = useDispatch();
     let [guessNumber, setGuessNumber] = useState(1);
-    const [word, setWord] = useState(this_word);
-    const [guess, setGuess] = useState('')
-    const [firstLetter, setFirstLetter] = useState('')
-    const [secondLetter, setSecondLetter] = useState('')
-    const [thirdLetter, setThirdLetter] = useState('')
-    const [fourthLetter, setFourthLetter] = useState('')
-    const [fifthLetter, setFifthLetter] = useState('')
-    const guess1 = useSelector(state => state.game[1]);
-    const guess2 = useSelector(state => state.game[2]);
-    const guess3 = useSelector(state => state.game[3]);
-    const guess4 = useSelector(state => state.game[4]);
-    const guess5 = useSelector(state => state.game[5]);
-    const guess6 = useSelector(state => state.game[6]);
 
     const handleChange = e => {
+        // handleChange helper functions
         const setLetter = (fieldGuess, fieldLetter, value) => {
             const letterInput = document.querySelector(`input[name='${(fieldGuess)}-${parseInt(fieldLetter)}']`);
-            letterInput.value = value;
+            letterInput.value = value.toUpperCase();
         }
 
         const setNext = (fieldGuess, fieldLetter) => {
@@ -36,6 +21,69 @@ function GameRandom() {
                 nextSibling.focus();
             }
         }
+
+        const addAllBackspaceEvents = () => {
+            // GRAB ALL LETTER INPUTS
+            let letter_guesses = document.getElementsByClassName('guess-letter');
+
+            // ADD EVENT LISTENERS TO EVERY LETTER INPUT
+            for (let i = 0; i < letter_guesses.length; i++) {
+                letter_guesses[i].addEventListener("keydown", function (e) {
+                    const { name } = e.target;
+                    const [fieldGuess, fieldLetter] = name.split("-");
+                    const thisLetter = document.querySelector(
+                        `input[name='${(fieldGuess)}-${parseInt(fieldLetter)}']`
+                    );
+                    const nextSibling = document.querySelector(
+                        `input[name='${(fieldGuess)}-${parseInt(fieldLetter) + 1}']`
+                    );
+                    const prevSibling = document.querySelector(
+                        `input[name='${(fieldGuess)}-${parseInt(fieldLetter) - 1}']`
+                    );
+
+                    //LEFT/RIGHT ARROWS
+                    if (e.key === "ArrowLeft") {
+                        if (fieldLetter > 1) {
+                            prevSibling.focus();
+                        }
+                    }
+
+                    if (e.key === "ArrowRight") {
+                        if (fieldLetter < 5) {
+                            nextSibling.focus();
+                        }
+                    }
+
+                    // BACKSPACE/DELETE
+                    if (fieldLetter > 1) {
+                        if (thisLetter.value) {
+                            if (e.key === "Backspace" || e.key === "Delete") {
+                                thisLetter.value = '_';
+                                thisLetter.focus();
+                                return;
+                            }
+                        } else {
+                            if (e.key === "Backspace" || e.key === "Delete") {
+                                prevSibling.focus();
+                                return;
+                            }
+                        }
+                    } else if (fieldLetter == 1) {
+                        if (e.key === "Backspace" || e.key === "Delete") {
+                            if (thisLetter.value) {
+                                thisLetter.value = '_';
+                                thisLetter.focus();
+                                return;
+                            }
+                        }
+                    }
+                })
+            }
+        }
+
+        addAllBackspaceEvents();
+
+        //handleChange function
 
         const { value, name } = e.target;
         const [fieldGuess, fieldLetter] = name.split("-");
@@ -50,56 +98,68 @@ function GameRandom() {
         }
     }
 
-    const checkLetter = async e => {
-        e.preventDefault()
+    const checkLetter = (letterPosition, actual_word, guessNumber) => {
+        const letterBlock = document.querySelector(`input[name='${guessNumber}-${letterPosition}']`)
+        const thisSubmitButton = document.querySelector(`button[name='submit-${guessNumber}']`)
+        const nextSubmitButton = document.querySelector(`button[name='submit-${parseInt(guessNumber) + 1}']`)
+        const value = letterBlock.value;
+        if (value === actual_word[parseInt(letterPosition) - 1]) {
+            letterBlock.classList.add('green');
+        } else if (actual_word.includes(value) && value !== actual_word[parseInt(letterPosition) - 1]) {
+            letterBlock.classList.add('yellow');
+        } else {
+            letterBlock.classList.add('gray');
+        }
+        letterBlock.disabled = true;
+        thisSubmitButton.className = 'disabled-button'
+        nextSubmitButton.className = 'active-guess-button'
+        return value;
+    }
+
+    const submitGuess = async e => {
+        e.preventDefault();
         const { name } = e.target;
         const [guessNo] = name.split("-")[1];
-        const guessedWord = { firstLetter, secondLetter, thirdLetter, fourthLetter, fifthLetter }
+        const firstLetter = document.querySelector(`input[name='${guessNumber}-1']`).value;
+        const secondLetter = document.querySelector(`input[name='${guessNumber}-2']`).value;
+        const thirdLetter = document.querySelector(`input[name='${guessNumber}-3']`).value;
+        const fourthLetter = document.querySelector(`input[name='${guessNumber}-4']`).value;
+        const fifthLetter = document.querySelector(`input[name='${guessNumber}-5']`).value;
 
-        const wordSet = await dispatch(setThisGuess(guessNo, guessedWord))
+        // CHECK IF ANY LETTERS ARE EMPTY AND PREVENT SUBMIT
+        if (!firstLetter || !secondLetter || !thirdLetter || !fourthLetter || !fifthLetter) return;
 
-        const firstWordGuess = document.querySelector(
-            `form[name='Guess-${parseInt(guessNo)}']`
-        );
-        console.log(firstWordGuess)
 
-        //GRAB WHAT IS CURRENTLY IN STATE
-        if (wordSet) {
+        // CHECK EACH LETTER AND SET CLASS APPROPRIATELY
+        checkLetter(1, this_word, guessNo);
+        checkLetter(2, this_word, guessNo);
+        checkLetter(3, this_word, guessNo);
+        checkLetter(4, this_word, guessNo);
+        checkLetter(5, this_word, guessNo);
 
-            //SET EACH GUESSED LETTER PERMANENTLY IN THAT ROW
-
-            //RESET STATE
-            setFirstLetter('');
-            setSecondLetter('');
-            setThirdLetter('');
-            setFourthLetter('');
-            setFifthLetter('');
-        }
-
-        //SET NEXT ROW TO USE STATE
-
+        // SET GUESS NUMBER FOR DISABLE FUNCTION
         setGuessNumber(prevState => prevState + 1);
-
     }
 
 
     const disableForms = guessNumber => {
+        let guessIndex;
+        let newlyDisabledStart;
+        let newlyDisabledEnd;
+        let letter_guesses = document.getElementsByClassName('guess-letter');
+
+        // ENABLE/DISABLE HELPER FUNCTION
         const enableDisable = (start, end) => {
             if (letter_guesses) {
-                for (let i = newlyDisabledStart; i <= newlyDisabledEnd; i++) {
-                    letter_guesses[i].disabled = true;
-                }
-                for (let i = newlyDisabledEnd + 1; i <= newlyDisabledEnd + 5; i++) {
+                for (let i = end + 1; i <= end + 5; i++) {
                     letter_guesses[i].disabled = false;
                 }
             }
             return;
         }
 
-        let guessIndex;
-        let newlyDisabledStart;
-        let newlyDisabledEnd;
-        let letter_guesses = document.getElementsByClassName('guess-letter');
+        // DISABLE FORMS BASED ON WHICH ROW YOU ARE ON
+
         if (guessNumber === 1) {
             guessIndex = 5;
             if (letter_guesses) {
@@ -140,6 +200,8 @@ function GameRandom() {
         }
     }
 
+    // CHECK ROW EVERY SUBMIT
+
     useEffect(() => {
         disableForms(guessNumber)
     }, [guessNumber])
@@ -147,53 +209,57 @@ function GameRandom() {
 
     return (
         <>
-            <form onSubmit={checkLetter} name='Guess-1' className='guess-word' id='guess-form-1'>
-                <input name='1-1' className='guess-letter' id='1-1' onChange={handleChange} type='text' maxLength='1'></input>
-                <input name='1-2' className='guess-letter' id='1-2' onChange={handleChange} type='text' maxLength='1' ></input>
-                <input name='1-3' className='guess-letter' id='1-3' onChange={handleChange} type='text' maxLength='1' ></input>
-                <input name='1-4' className='guess-letter' id='1-4' onChange={handleChange} type='text' maxLength='1'></input>
-                <input name='1-5' className='guess-letter' id='1-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button name='firstGuessSubmit'>Guess!</button>
+            <form onSubmit={submitGuess} name='Guess-1' className='guess-word' id='guess-form-1'>
+                <div className="guess-letter-container">
+                    <input name='1-1' className='guess-letter' id='1-1' onChange={handleChange} type='text' maxLength='1'></input>
+                    <input name='1-2' className='guess-letter' id='1-2' onChange={handleChange} type='text' maxLength='1' ></input>
+                    <input name='1-3' className='guess-letter' id='1-3' onChange={handleChange} type='text' maxLength='1' ></input>
+                    <input name='1-4' className='guess-letter' id='1-4' onChange={handleChange} type='text' maxLength='1'></input>
+                    <input name='1-5' className='guess-letter' id='1-5' onChange={handleChange} type='text' maxLength='1'></input>
+                </div>
+                <div className='guess-button-container'>
+                    <button className='active-guess-button' name='submit-1'>Guess!</button>
+                </div>
             </form>
-            <form onSubmit={checkLetter} name='Guess-2' className='guess-word' id='guess-form-2'>
+            <form onSubmit={submitGuess} name='Guess-2' className='guess-word' id='guess-form-2'>
                 <input name='2-1' className='guess-letter' id='2-1' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='2-2' className='guess-letter' id='2-2' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='2-3' className='guess-letter' id='2-3' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='2-4' className='guess-letter' id='2-4' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='2-5' className='guess-letter' id='2-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button>Guess!</button>
+                <button className="disabled-button" name='submit-2'>Guess!</button>
             </form>
-            <form onSubmit={checkLetter} name='Guess-3' className='guess-word' id='guess-form-3'>
+            <form onSubmit={submitGuess} name='Guess-3' className='guess-word' id='guess-form-3'>
                 <input name='3-1' className='guess-letter' id='3-1' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='3-2' className='guess-letter' id='3-2' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='3-3' className='guess-letter' id='3-3' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='3-4' className='guess-letter' id='3-4' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='3-5' className='guess-letter' id='3-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button>Guess!</button>
+                <button className="disabled-button" name='submit-3'>Guess!</button>
             </form>
-            <form onSubmit={checkLetter} name='Guess-4' className='guess-word' id='guess-form-4'>
+            <form onSubmit={submitGuess} name='Guess-4' className='guess-word' id='guess-form-4'>
                 <input name='4-1' className='guess-letter' id='4-1' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='4-2' className='guess-letter' id='4-2' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='4-3' className='guess-letter' id='4-3' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='4-4' className='guess-letter' id='4-4' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='4-5' className='guess-letter' id='4-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button>Guess!</button>
+                <button className="disabled-button" name='submit-4'>Guess!</button>
             </form>
-            <form onSubmit={checkLetter} name='Guess-5' className='guess-word' id='guess-form-5'>
+            <form onSubmit={submitGuess} name='Guess-5' className='guess-word' id='guess-form-5'>
                 <input name='5-1' className='guess-letter' id='5-1' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='5-2' className='guess-letter' id='5-2' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='5-3' className='guess-letter' id='5-3' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='5-4' className='guess-letter' id='5-4' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='5-5' className='guess-letter' id='5-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button>Guess!</button>
+                <button className="disabled-button" name='submit-5'>Guess!</button>
             </form>
-            <form onSubmit={checkLetter} name='Guess-6' className='guess-word' id='guess-form-6'>
+            <form onSubmit={submitGuess} name='Guess-6' className='guess-word' id='guess-form-6'>
                 <input name='6-1' className='guess-letter' id='6-1' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='6-2' className='guess-letter' id='6-2' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='6-3' className='guess-letter' id='6-3' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='6-4' className='guess-letter' id='6-4' onChange={handleChange} type='text' maxLength='1'></input>
                 <input name='6-5' className='guess-letter' id='6-5' onChange={handleChange} type='text' maxLength='1'></input>
-                <button>Guess!</button>
+                <button className="disabled-button" name='submit-6'>Guess!</button>
             </form>
         </>
     )

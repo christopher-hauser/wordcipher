@@ -9,7 +9,7 @@ function GamePage() {
                 <h2 id='wordcipher-title'>Welcome to Wordcipher!</h2>
                 <p id='coming-soon'>Game coming soon. :)</p>
             </div> */}
-            <div>
+            <div id='game-container'>
                 <GameRandom />
             </div>
         </>

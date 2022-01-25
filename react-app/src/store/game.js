@@ -7,6 +7,7 @@ const setGuess = (guessNo, word) => ({
 
 export const setThisGuess = (guessNo, word) => async dispatch => {
     dispatch(setGuess(guessNo, word))
+    return word;
 }
 
 export default function reducer(state = {}, action) {
