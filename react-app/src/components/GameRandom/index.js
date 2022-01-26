@@ -1,9 +1,16 @@
 import React, { useEffect, useState } from "react";
+import WinPopup from "../WinPopup";
+import { Modal } from '../../context/Modal'
 import './style.css'
+import LosePopup from "../LosePopup";
 
 function GameRandom() {
     const this_word = 'ABOUT'; //FETCH FROM API
-    let [guessNumber, setGuessNumber] = useState(1);
+    const [guessNumber, setGuessNumber] = useState(1);
+    const [showModal, setShowModal] = useState(false);
+    const [showLoseModal, setShowLoseModal] = useState(false);
+    const [points, setPoints] = useState(0);
+    const [attempts, setAttempts] = useState(0);
 
     const handleChange = e => {
         // handleChange helper functions
@@ -112,9 +119,36 @@ function GameRandom() {
         }
         letterBlock.disabled = true;
         thisSubmitButton.className = 'disabled-button'
-        nextSubmitButton.className = 'active-guess-button'
+        if (nextSubmitButton) {
+            nextSubmitButton.className = 'active-guess-button'
+        }
         return value;
     }
+
+    const checkWin = (guessed_word, actual_word, attemptNo) => {
+        // IF WIN
+        if (guessed_word === actual_word) {
+            // AWARD POINTS AND SET MODAL
+            setAttempts(attemptNo);
+            setPoints(100);
+            setShowModal(true);
+
+            //DISABLE REMAINING INPUTS AND BUTTONS
+            let letter_guesses = document.getElementsByClassName('guess-letter');
+            for (let i = 0; i < letter_guesses.length; i++) {
+                letter_guesses[i].disabled = true;
+            }
+            if (attemptNo < 6) {
+                document.querySelector(`button[name='submit-${parseInt(attemptNo) + 1}']`).className = 'disabled-button';
+            }
+        }
+
+        // IF LOSE
+        if (guessed_word !== actual_word && attemptNo == 6) {
+            setShowLoseModal(true);
+        }
+    }
+
 
     const submitGuess = async e => {
         e.preventDefault();
@@ -132,10 +166,29 @@ function GameRandom() {
 
         // CHECK EACH LETTER AND SET CLASS APPROPRIATELY
         checkLetter(1, this_word, guessNo);
-        checkLetter(2, this_word, guessNo);
-        checkLetter(3, this_word, guessNo);
-        checkLetter(4, this_word, guessNo);
-        checkLetter(5, this_word, guessNo);
+
+        setTimeout(() => {
+            checkLetter(2, this_word, guessNo);
+        }, 300)
+
+        setTimeout(() => {
+            checkLetter(3, this_word, guessNo);
+        }, 600)
+
+        setTimeout(() => {
+            checkLetter(4, this_word, guessNo);
+        }, 900)
+
+        setTimeout(() => {
+            checkLetter(5, this_word, guessNo);
+        }, 1200);
+
+        // CHECK TO SEE IF THE USER WON
+        const guessed_word = firstLetter + secondLetter + thirdLetter + fourthLetter + fifthLetter;
+
+        setTimeout(() => {
+            checkWin(guessed_word, this_word, guessNo);
+        }, 1500);
 
         // SET GUESS NUMBER FOR DISABLE FUNCTION
         setGuessNumber(prevState => prevState + 1);
@@ -154,6 +207,7 @@ function GameRandom() {
                 for (let i = end + 1; i <= end + 5; i++) {
                     letter_guesses[i].disabled = false;
                 }
+                letter_guesses[end + 1].focus();
             }
             return;
         }
@@ -261,6 +315,16 @@ function GameRandom() {
                 <input name='6-5' className='guess-letter' id='6-5' onChange={handleChange} type='text' maxLength='1'></input>
                 <button className="disabled-button" name='submit-6'>Guess!</button>
             </form>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <WinPopup points={points} attempts={attempts} />
+                </Modal>
+            )}
+            {showLoseModal && (
+                <Modal onClose={() => setShowLoseModal(false)}>
+                    <LosePopup word={this_word} />
+                </Modal>
+            )}
         </>
     )
 }

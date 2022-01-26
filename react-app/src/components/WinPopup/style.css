@@ -1,0 +1,111 @@
+#win-container {
+    background-color: rgb(10, 175, 112);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#lose-container {
+    background-color: rgb(156, 58, 58);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#win-inner-container {
+    box-sizing: border-box;
+    padding: 50px;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+}
+
+#lose-inner-container {
+    box-sizing: border-box;
+    padding: 50px;
+    height: 80%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid white;
+}
+
+#win-attempts {
+    font-size: 22px;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+}
+
+#lose-word {
+    font-size: 22px;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+}
+
+
+#points-gained {
+    font-size: 30px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+#play-again {
+    border: 1px solid black;
+    background-color: white;
+    width: 120px;
+    height: 50px;
+    transition: 0.2s;
+}
+
+#play-again-loss {
+    border: 1px solid black;
+    background-color: white;
+    width: 120px;
+    height: 50px;
+    transition: 0.2s;
+}
+
+#play-again:hover {
+    border: 1px solid white;
+    background-color: rgb(6, 82, 52);
+    color: white;
+    cursor: pointer;
+}
+
+#play-again-loss:hover {
+    border: 1px solid white;
+    background-color: rgb(82, 21, 6);
+    color: white;
+    cursor: pointer;
+}
+
+#congratulations {
+    margin: 0;
+    font-size: 32px;
+    color: white;
+    font-weight: 500;
+}
+
+#sorry {
+    margin: 0;
+    font-size: 32px;
+    color: white;
+    font-weight: 500;
+}

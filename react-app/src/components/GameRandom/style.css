@@ -1,11 +1,12 @@
 #game-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 50%;
     height: 90%;
     align-items: center;
-    padding-top: 150px;
-    background-color: rgb(229, 213, 192);
+    justify-content: center;
+    background-color: white;
+    margin-top: -20px;
 }
 
 .guess-word {
@@ -13,7 +14,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 30%;
+    width: 50%;
 }
 
 .guess-letter {
@@ -25,13 +26,13 @@
 }
 
 .green {
-    background: rgb(46, 145, 46);
+    background: rgb(10, 175, 112);
     color: white;
 }
 
 .yellow {
 
-    background: rgb(180, 159, 63);
+    background: rgb(214, 192, 96);
     color: white;
 }
 
