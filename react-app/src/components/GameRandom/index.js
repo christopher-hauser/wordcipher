@@ -5,7 +5,27 @@ import './style.css'
 import LosePopup from "../LosePopup";
 
 function GameRandom() {
-    const this_word = 'ABOUT'; //FETCH FROM API
+    // const this_word = 'ABOUT'; //FETCH FROM API
+    const [this_word, setThis_word] = useState('');
+
+    const getRandomWord = async () => {
+        const data = await fetch("https://wordsapiv1.p.rapidapi.com/words/?letters=5&random=true&inRegion=USA&partsOfSpeech=verb", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
+            }
+        })
+        .then(response => {
+            return response.json();
+        })
+        .catch(err => {
+            console.error(err);
+        });
+        console.log(data.word.toUpperCase());
+        return data.word.toUpperCase();
+    }
+
     const [guessNumber, setGuessNumber] = useState(1);
     const [showModal, setShowModal] = useState(false);
     const [showLoseModal, setShowLoseModal] = useState(false);
@@ -259,6 +279,11 @@ function GameRandom() {
     useEffect(() => {
         disableForms(guessNumber)
     }, [guessNumber])
+
+    useEffect(async () => {
+        const data = await getRandomWord();
+        setThis_word(data);
+    }, [])
 
 
     return (
