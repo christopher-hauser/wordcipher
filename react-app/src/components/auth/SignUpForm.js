@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -115,7 +116,16 @@ const SignUpForm = () => {
         </div>
       </div>
       <div id='footer'>
-        FOOTER
+        <div>
+          <a href='https://github.com/christopher-hauser'>
+            <AiFillGithub />
+          </a>
+        </div>
+        <div>
+          <a href='https://www.linkedin.com/in/christopher-hauser-083723bb/'>
+            <AiFillLinkedin />
+          </a>
+        </div>
       </div>
     </div>
   );

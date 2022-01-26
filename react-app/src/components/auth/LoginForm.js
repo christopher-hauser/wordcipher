@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 import './style.css'
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -38,6 +39,7 @@ const LoginForm = () => {
   const updatePassword = (e) => {
     setPassword(e.target.value);
   };
+
 
   if (user?.id) {
     return <Redirect to='/' />;
@@ -85,7 +87,16 @@ const LoginForm = () => {
         </div>
       </div>
       <div id='footer'>
-        FOOTER
+        <div>
+          <a href='https://github.com/christopher-hauser'>
+            <AiFillGithub />
+          </a>
+        </div>
+        <div>
+          <a href='https://www.linkedin.com/in/christopher-hauser-083723bb/'>
+            <AiFillLinkedin />
+          </a>
+        </div>
       </div>
     </div>
   );

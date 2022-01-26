@@ -9,7 +9,10 @@ function GameRandom() {
     const [this_word, setThis_word] = useState('');
 
     const getRandomWord = async () => {
-        const data = await fetch("https://wordsapiv1.p.rapidapi.com/words/?letters=5&random=true&minCorpusCount=5&minDictionaryCount=4", {
+        const data = await fetch("https://wordsapiv1.p.rapidapi.com/words/?" + new URLSearchParams({
+            letters: 5,
+            random: true,
+            partOfSpeech: "adjective"}), {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",

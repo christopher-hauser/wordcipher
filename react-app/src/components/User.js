@@ -5,27 +5,10 @@ import { sendFriendRequest, undoFriendRequest } from '../store/session';
 
 function User({ user }) {
   const dispatch = useDispatch()
-  // const { userId }  = useParams();
-  // const [user, setUser] = useState({});
   const sentRequest = useSelector(state => Boolean(state.session.user.friended_them.includes(+user?.id)))
   const [sentFriendRequest, setSentFriendRequest] = useState(sentRequest);
   const loggedInUserId = useSelector(state => state.session.user.id)
   const alreadyFriends = useSelector(state => state.session.user.friends.includes(+user?.id))
-
-  // useEffect(() => {
-  //   if (!userId) {
-  //     return;
-  //   }
-  //   (async () => {
-  //     const response = await fetch(`/api/users/${userId}`);
-  //     const user = await response.json();
-  //     setUser(user);
-  //   })();
-  // }, [userId]);
-
-  // if (!user) {
-  //   return null;
-  // }
 
   const submitRequest = () => {
     dispatch(sendFriendRequest(loggedInUserId, user?.id))

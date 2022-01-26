@@ -1,0 +1,100 @@
+#profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 91.1%;
+    margin: 0% 0%;
+    background-image: linear-gradient(0deg, rgba(207, 131, 150, 0.5) 0%, #97dce181 100%);
+}
+
+#profile-inner-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 30px 20px;
+    align-items: center;
+    height: 90%;
+    width: 40%;
+    border: 4px solid white;
+    background-image: linear-gradient(0deg, rgba(207, 131, 150, 1) 0%, #97dce1 100%);
+}
+
+#user-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid white;
+}
+
+#user-circle {
+    width: 200px;
+    height: 200px;
+    border: 2px solid white;
+    border-radius: 300px;
+    background-color: rgba(221, 41, 71, 0.603);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15% 0% 5% 0%;
+}
+
+#user-circle-letter {
+    font-size: 50px;
+    color: white;
+    font-family: 'Lora';
+}
+
+#users-username {
+    font-size: 30px;
+    color: white;
+    margin: 10% 0 5% 0;
+    font-family: 'Lora';
+}
+
+#users-email {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 40px 0;
+}
+
+#users-points {
+    font-size: 60px;
+    color: white;
+    margin: 6% 0 0 0;
+    font-family: 'Lora';
+}
+
+#games-info-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+    height: 25%;
+    min-width: 600px;
+}
+
+#wins {
+    box-sizing: border-box;
+    width: 50%;
+    font-size: 40px;
+    color: white;
+    padding: 15px 0px 15px 0px;
+    margin-right: -20px;
+    margin-left: 20px;
+    text-align: center;
+    flex-wrap: wrap;
+    font-family: 'Lora';
+}
+
+#percent {
+    box-sizing: border-box;
+    width: 50%;
+    font-size: 40px;
+    color: white;
+    border-left: 1px solid white;
+    padding: 15px 0px 15px 0px;
+    padding-left: 50px;
+    text-align: left;
+    font-family: 'Lora';
+}
