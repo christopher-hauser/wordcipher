@@ -42,7 +42,7 @@ function App() {
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <ProtectedRoute path='/' exact={true}>
           <GamePage />
         </ProtectedRoute>
         <ProtectedRoute path='/my-profile' exact={true}>

@@ -37,7 +37,7 @@ const NewChallengeForm = () => {
         const newChallenge = {
             'challengerId': user.id,
             'recipientId': +friend,
-            'word': word,
+            'word': word.toUpperCase()
         }
 
         let errors = validate();

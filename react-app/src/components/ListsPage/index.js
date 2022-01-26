@@ -8,6 +8,7 @@ import './style.css'
 
 function ListsPage() {
     const lists = useSelector(state => state.lists.lists)
+    const user = useSelector(state => state.session.user)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -34,7 +35,11 @@ function ListsPage() {
                             {lists.length > 0 && (
                                 <>
                                     {lists.map(list => (
-                                        <IndividualList list={list} />
+                                        <>
+                                            {((list.userId !== user.id && list.words.length > 0) || list.userId === user.id) && (
+                                                <IndividualList list={list} />
+                                            )}
+                                        </>
                                     ))}
                                 </>
                             )}

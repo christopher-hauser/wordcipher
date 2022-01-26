@@ -26,7 +26,7 @@ const AddWordForm = ({ list }) => {
         const newWord = {
             'userId': user.id,
             'listId': list.id,
-            word
+            word: word.toUpperCase()
         }
 
         await dispatch(addNewWord(newWord))

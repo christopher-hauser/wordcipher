@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import WinPopup from "../WinPopup";
 import { Modal } from '../../context/Modal'
 import './style.css'
 import LosePopup from "../LosePopup";
 
 function GameRandom() {
-    // const this_word = 'ABOUT'; //FETCH FROM API
     const [this_word, setThis_word] = useState('');
+    const location = useLocation();
 
     const getRandomWord = async () => {
         const data = await fetch("https://wordsapiv1.p.rapidapi.com/words/?" + new URLSearchParams({
@@ -25,7 +26,6 @@ function GameRandom() {
         .catch(err => {
             console.error(err);
         });
-        console.log(data.word.toUpperCase());
         return data.word.toUpperCase();
     }
 
@@ -284,8 +284,13 @@ function GameRandom() {
     }, [guessNumber])
 
     useEffect(async () => {
-        const data = await getRandomWord();
-        setThis_word(data);
+        if (location.state) {
+            const word = location.state.word.toUpperCase();
+            setThis_word(word);
+        } else {
+            const data = await getRandomWord();
+            setThis_word(data);
+        }
     }, [])
 
 

@@ -14,7 +14,7 @@ const NewListForm = () => {
 
         const newList = {
             'userId': user.id,
-            name
+            name: name.toUpperCase()
         }
 
         let submitted = await dispatch(addNewList(newList))

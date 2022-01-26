@@ -12,7 +12,7 @@ list_routes = Blueprint('lists', __name__)
 @list_routes.route('/')
 @login_required
 def get_all_lists():
-    lists = List.query.order_by(List.name).all()
+    lists = List.query.order_by(List.id).all()
     return {'lists': [a_list.to_dict() for a_list in lists]}
 
 # GET ONE LIST

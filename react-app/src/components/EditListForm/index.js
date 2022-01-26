@@ -15,7 +15,7 @@ const EditListForm = ({ list, editState, sendDataToParent }) => {
         const editedList = {
             'id': list.id,
             'userId': list.userId,
-            name
+            name: name.toUpperCase()
         }
 
         let submitted = await dispatch(editThisList(editedList))
