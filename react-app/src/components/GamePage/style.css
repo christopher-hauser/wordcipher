@@ -1,11 +1,7 @@
 #game-page-container {
-    margin: 0% 10%;
-    padding: 10% 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    background-color: rgba(11, 49, 105, 0.897);
-    height: 50.2%;
+    height: 91.1%;
 }
 
 #wordcipher-title {
@@ -14,8 +10,34 @@
     color: white;
 }
 
-#coming-soon {
-    font-size: 30px;
-    font-weight: 200;
-    color: white;
+#instructions-container {
+    width: 50%;
+    height: 100%;
+    background-color: rgba(131, 207, 188, 0.904);
+    background-image: linear-gradient(0deg, rgba(131, 207, 188, 0.904) 0%, #97D9E1 100%);
+
+}
+
+#inner-instructions-container {
+    box-sizing: border-box;
+    padding: 150px 200px 150px 125px;
+}
+
+#welcome-wordcipher {
+    font-size: 40px;
+    margin-bottom: 0;
+}
+
+#word-guessing {
+    font-size: 28px;
+    margin-top: 10px;
+}
+
+#how-to {
+    font-size: 20px;
+    border-bottom: 1px solid black;
+}
+
+.instructions {
+    font-size: 18px;
 }
