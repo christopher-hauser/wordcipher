@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import WinPopup from "../WinPopup";
 import { Modal } from '../../context/Modal'
@@ -8,32 +9,35 @@ import LosePopup from "../LosePopup";
 function GameRandom() {
     const [this_word, setThis_word] = useState('');
     const location = useLocation();
+    const [guessNumber, setGuessNumber] = useState(1);
+    const [showModal, setShowModal] = useState(false);
+    const [showLoseModal, setShowLoseModal] = useState(false);
+    const [points, setPoints] = useState(0);
+    const [attempts, setAttempts] = useState(0);
+    const user = useSelector(state => state.session.user);
+
 
     const getRandomWord = async () => {
         const data = await fetch("https://wordsapiv1.p.rapidapi.com/words/?" + new URLSearchParams({
             letters: 5,
             random: true,
-            partOfSpeech: "adjective"}), {
+            partOfSpeech: "adjective"
+        }), {
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
                 "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
             }
         })
-        .then(response => {
-            return response.json();
-        })
-        .catch(err => {
-            console.error(err);
-        });
+            .then(response => {
+                return response.json();
+            })
+            .catch(err => {
+                console.error(err);
+            });
         return data.word.toUpperCase();
     }
 
-    const [guessNumber, setGuessNumber] = useState(1);
-    const [showModal, setShowModal] = useState(false);
-    const [showLoseModal, setShowLoseModal] = useState(false);
-    const [points, setPoints] = useState(0);
-    const [attempts, setAttempts] = useState(0);
 
     const handleChange = e => {
         // handleChange helper functions
@@ -148,13 +152,52 @@ function GameRandom() {
         return value;
     }
 
-    const checkWin = (guessed_word, actual_word, attemptNo) => {
+    const sendGameData = async (completedGame) => {
+        const res = await fetch(`/api/completed_games/`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(completedGame)
+        })
+        if (res.ok) {
+            const data = await res.json();
+            return data;
+        }
+    }
+
+
+    const checkWin = async (guessed_word, actual_word, attemptNo) => {
         // IF WIN
+        const userId = user.id;
+        const word = actual_word;
+        const attempts = attemptNo;
+        let challengerId;
+        if (location.state) {
+            if (location.state.challengerId) {
+                challengerId = location.state.challengerId;
+            }
+        } else {
+            challengerId = null;
+        }
+
         if (guessed_word === actual_word) {
             // AWARD POINTS AND SET MODAL
+            const pointsAwarded = (6 / parseInt(attemptNo) * 150)
             setAttempts(attemptNo);
-            setPoints(100);
+            setPoints(pointsAwarded);
             setShowModal(true);
+
+            const win = true;
+
+            const completedGame = {
+                userId,
+                challengerId,
+                word,
+                attempts,
+                win,
+                pointsAwarded
+            }
+
+            await sendGameData(completedGame)
 
             //DISABLE REMAINING INPUTS AND BUTTONS
             let letter_guesses = document.getElementsByClassName('guess-letter');
@@ -169,6 +212,20 @@ function GameRandom() {
         // IF LOSE
         if (guessed_word !== actual_word && attemptNo == 6) {
             setShowLoseModal(true);
+
+            const win = false;
+            const pointsAwarded = 0
+
+            const completedGame = {
+                userId,
+                challengerId,
+                word,
+                attempts,
+                win,
+                pointsAwarded
+            }
+
+            await sendGameData(completedGame)
         }
     }
 
@@ -183,11 +240,65 @@ function GameRandom() {
         const fourthLetter = document.querySelector(`input[name='${guessNumber}-4']`).value;
         const fifthLetter = document.querySelector(`input[name='${guessNumber}-5']`).value;
 
+        // const animateFakeWord = () => {
+        //     console.log('animate')
+        //     let id = null;
+        //     const el = document.getElementById(`guess-form-${guessNo}`);
+        //     el.style.position = 'relative';
+        //     let posH = 0;
+        //     let posV = 0;
+        //     clearInterval(id);
+        //     id = setInterval(frame, 2);
+        //     function frame() {
+        //         let begun = false;
+        //         if (posH == 0 && posV == 0 && begun == false) {
+        //             console.log('1', posH, posV)
+        //             posH -= 2;
+        //             posV--;
+        //             el.style.top = posV + "px"
+        //             el.style.right = posH + "px"
+        //         } else if ((posH >= -40 &&  posH < 0) && (posV >= -20  && posV < 0)) {
+        //             console.log('2', posH, posV)
+        //             posH += 2;
+        //             posV++;
+        //             el.style.top = posV + "px"
+        //             el.style.right = posH + "px"
+        //             if (posH == 0 && posV == 0) {
+        //                 begun = true;
+        //             }
+        //         } else if ((posH <= 40 && posH > 0) && (posV <= 20 && posV > 0)) {
+        //             console.log('3', posH, posV)
+        //             posH -= 2;
+        //             posV--;
+        //             el.style.top = posV + "px"
+        //             el.style.right = posH + "px"
+        //             if (posH == 0 && posV == 0) {
+        //                 clearInterval(id);
+        //             }
+        //         }
+        //     }
+        // }
+
         // CHECK IF ANY LETTERS ARE EMPTY AND PREVENT SUBMIT
         const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
+        const guessed_word = firstLetter + secondLetter + thirdLetter + fourthLetter + fifthLetter;
         if (!firstLetter || !secondLetter || !thirdLetter || !fourthLetter || !fifthLetter) return;
         if (!alpha.includes(firstLetter) || !alpha.includes(secondLetter) || !alpha.includes(thirdLetter) || !alpha.includes(fourthLetter) || !alpha.includes(fifthLetter)) return;
-
+        const is_word = await fetch(`https://wordsapiv1.p.rapidapi.com/words/${guessed_word}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
+            }
+        }).then(response => {
+            return response.ok;
+        }).catch(err => {
+            console.error(err);
+        });
+        if (!is_word) {
+            // animateFakeWord();
+            return;
+        }
 
         // CHECK EACH LETTER AND SET CLASS APPROPRIATELY
         checkLetter(1, this_word, guessNo);
@@ -209,7 +320,6 @@ function GameRandom() {
         }, 1200);
 
         // CHECK TO SEE IF THE USER WON
-        const guessed_word = firstLetter + secondLetter + thirdLetter + fourthLetter + fifthLetter;
 
         setTimeout(() => {
             checkWin(guessed_word, this_word, guessNo);

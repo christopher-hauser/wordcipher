@@ -52,5 +52,8 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'friended_me': [user.id for user in self.received_friends if user not in self.friended],
             'friended_them': [user.id for user in self.friended if user not in self.received_friends],
-            'friends': [user.id for user in self.received_friends if user in self.friended]
+            'friends': [user.id for user in self.received_friends if user in self.friended],
+            'points': sum([game.pointsAwarded for game in self.completedGames]),
+            'games_won': sum([game.win for game in self.completedGames if game.win]),
+            'games_played': len([game for game in self.completedGames])
         }

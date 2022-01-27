@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { sendFriendRequest, undoFriendRequest } from '../store/session';
 
@@ -24,7 +23,7 @@ function User({ user }) {
     <>
         <div className='users-name-points'>
           <h3 className='users-block-username'>{user?.username}</h3>
-          <p className='users-block-points'>X pts</p>
+          <p className='users-block-points'>{user.points} pts</p>
         </div>
         <div className='users-options'>
           {loggedInUserId !== +user?.id && sentFriendRequest && !alreadyFriends && (

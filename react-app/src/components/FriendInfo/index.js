@@ -8,9 +8,17 @@ function FriendInfo({ friend }) {
         <>
             <div className='friend-info'>
                 <h2>{friend.username}</h2>
-                <p>x points</p>
-                <p>x games completed</p>
-                <p>x% win rate</p>
+                <p>{friend.points} pts</p>
+                {friend.games_won > 0 && friend.games_played > 0 && (
+                    <>
+                    <p>{friend.games_won} wins</p>
+                    <p>{Math.floor(friend.games_won/friend.games_played * 100)}% W/L</p>
+                    </>
+                )}
+                {friend.games_played === 0 && (
+                    <p>This user hasn't played any games yet!</p>
+                )}
+
             </div>
         </>
     )

@@ -11,6 +11,7 @@ from .api.auth_routes import auth_routes
 from .api.friend_routes import friend_routes
 from .api.challenge_routes import challenge_routes
 from .api.list_routes import list_routes
+from .api.completed_games_routes import completed_games_routes
 
 from .seeds import seed_commands
 
@@ -37,6 +38,7 @@ app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(friend_routes, url_prefix='/api/friends')
 app.register_blueprint(challenge_routes, url_prefix='/api/challenges')
 app.register_blueprint(list_routes, url_prefix='/api/lists')
+app.register_blueprint(completed_games_routes, url_prefix='/api/completed_games')
 db.init_app(app)
 Migrate(app, db)
 

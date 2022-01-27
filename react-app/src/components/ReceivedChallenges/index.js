@@ -7,7 +7,10 @@ function ReceivedChallenges({ challenge }) {
     const playChallenge = () => {
         history.push({
             pathname: '/',
-            state: { word: challenge.word}
+            state: {
+                word: challenge.word,
+                challengerId: challenge.challengerId
+             }
         })
     }
 
@@ -17,7 +20,9 @@ function ReceivedChallenges({ challenge }) {
                 <h3 className='challenger-name'>{challenge.challengerName}</h3>
                 <div className='status-play'>
                     <p className='status-text'>{challenge.status}</p>
-                    <button onClick={playChallenge} className='received-play-button'>Play</button>
+                    {challenge.status === "Incomplete" && (
+                        <button onClick={playChallenge} className='received-play-button'>Play</button>
+                    )}
                 </div>
             </div>
         </>

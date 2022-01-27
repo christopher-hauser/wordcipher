@@ -9,18 +9,34 @@ const AddWordForm = ({ list }) => {
     const [word, setWord] = useState('');
     const dispatch = useDispatch();
 
-    const validate = () => {
+    const validate = async () => {
         const errors = [];
         if (word.length !== 5) {
             errors.push('Word must be exactly 5 characters.')
         }
+
+        await fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
+            }
+        }).then(response => {
+            if (!response.ok) {
+                errors.push('Word must be found in the dictionary.')
+            }
+            return response;
+        }).catch(err => {
+            console.error(err);
+        });
+
         return errors;
     }
 
     const submit = async e => {
         e.preventDefault();
 
-        let errors = validate();
+        let errors = await validate();
         if (errors.length > 0) return setErrors(errors);
 
         const newWord = {

@@ -19,10 +19,10 @@ function UserProfile() {
                             <p>{user.bio}</p>
                         )}
                     </div>
-                    <p id='users-points'>2,500 pts</p>
+                    <p id='users-points'>{user.points.toLocaleString("en-US")} pts</p>
                     <div id='games-info-container'>
-                        <p id='wins'>34 WINS</p>
-                        <p id='percent'>100%</p>
+                        <p id='wins'>{user.games_won} WINS</p>
+                        <p id='percent'>{Math.floor(user.games_won/user.games_played * 100)}% W/L</p>
                     </div>
                 </div>
             </div>

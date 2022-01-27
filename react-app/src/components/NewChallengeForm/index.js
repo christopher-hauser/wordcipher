@@ -24,10 +24,25 @@ const NewChallengeForm = () => {
         return data;
     }
 
-    const validate = () => {
+    const validate = async () => {
         let errors = [];
         if (word.length !== 5) errors.push('Word must be exactly 5 characters.')
         if (!friend) errors.push('Please select a friend to send your word to.')
+        await fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
+            }
+        }).then(response => {
+            if (!response.ok) {
+                errors.push('Word must be found in the dictionary.')
+            }
+            return response;
+        }).catch(err => {
+            console.error(err);
+        });
+
         return errors;
     }
 
@@ -40,7 +55,7 @@ const NewChallengeForm = () => {
             'word': word.toUpperCase()
         }
 
-        let errors = validate();
+        let errors = await validate();
 
         if (errors.length > 0) {
             setErrors(errors);
