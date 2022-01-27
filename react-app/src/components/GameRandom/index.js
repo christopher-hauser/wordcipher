@@ -184,7 +184,9 @@ function GameRandom() {
         const fifthLetter = document.querySelector(`input[name='${guessNumber}-5']`).value;
 
         // CHECK IF ANY LETTERS ARE EMPTY AND PREVENT SUBMIT
+        const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
         if (!firstLetter || !secondLetter || !thirdLetter || !fourthLetter || !fifthLetter) return;
+        if (!alpha.includes(firstLetter) || !alpha.includes(secondLetter) || !alpha.includes(thirdLetter) || !alpha.includes(fourthLetter) || !alpha.includes(fifthLetter)) return;
 
 
         // CHECK EACH LETTER AND SET CLASS APPROPRIATELY

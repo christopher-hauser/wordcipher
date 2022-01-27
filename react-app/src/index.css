@@ -127,7 +127,7 @@ html, body {
     justify-content: flex-start;
     align-items: center;
     margin: 0% 20%;
-    background-color: rgba(131, 207, 188, 0.904);
+    background-image: linear-gradient(0deg, rgba(198, 131, 207, 0.315) 0%, #97b9e1 50%);
     height: 90.5%;
 }
 
@@ -160,7 +160,7 @@ html, body {
     padding: 40px;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(209, 110, 110);
+    background-image: linear-gradient(0deg, rgba(198, 131, 207, 0.904) 0%, #97b9e1 100%);
 }
 
 #explore-title {

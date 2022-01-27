@@ -41,7 +41,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(221, 208, 190);
+    background-image: linear-gradient(0deg, rgba(207, 146, 131, 0.904) 0%, #e1d097 100%);
 }
 
 .list-name {

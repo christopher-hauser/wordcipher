@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     margin: 0% 20%;
-    background-color: rgb(221, 208, 190);
     height: 90.75%;
     min-width: 1000px;
 }
@@ -123,6 +122,7 @@
     align-items: center;
     width: 75%;
     height: 100%;
+    background-image: linear-gradient(0deg, rgba(207, 146, 131, 0.904) 0%, #e1d097 100%);
 }
 
 #friend-info-container {
