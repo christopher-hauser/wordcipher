@@ -63,7 +63,9 @@ function FriendsPage() {
             <div id='friends-page-container'>
                 <div id='friends-and-requests'>
                     <div id='left-friends'>
-                        <div id='friends-background'></div>
+                        <div id='friends-background'>
+                            <p id='friends-top-title'>F R I E N D S</p>
+                        </div>
                         <div id='friend-list-and-info'>
                             <div id='friends-blocks-container'>
                                 <h2 id='friends-title'>FRIENDS</h2>
@@ -76,7 +78,7 @@ function FriendsPage() {
                             <div id='outer-friend-info-container'>
                                 <div id='friend-info-container'>
                                     {!selectedFriend && (
-                                        <h2>Select a friend to view their information.</h2>
+                                        <h2 id='select-a-friend-to-view'>Select a friend to view their information.</h2>
                                     )}
 
                                     {selectedFriend && (

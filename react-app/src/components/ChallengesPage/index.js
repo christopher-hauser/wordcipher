@@ -59,7 +59,7 @@ function ChallengesPage() {
                                 </>
                             )}
                             {challenges.length === 0 && (
-                                <p>No challenges at this time.</p>
+                                <p id='no-challenges'>No challenges at this time.</p>
                             )}
                         </div>
                     </div>

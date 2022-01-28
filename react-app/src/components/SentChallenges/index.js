@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { deleteThisChallenge, getAllMyChallenges } from '../../store/challenges';
+import challenges, { deleteThisChallenge, getAllMyChallenges } from '../../store/challenges';
 import EditChallengeForm from '../EditChallengeForm';
 
 
@@ -29,13 +29,17 @@ function SentChallenges({ challenge }) {
                 <p>{challenge.word}</p>
                 <p>{challenge.status}</p>
                 <div className='sent-challenge-options'>
-                    {!editOpen && (
-                        <button className='sent-button' onClick={openPopup}>Edit</button>
+                    {challenge.status === 'Incomplete' && (
+                        <>
+                            {!editOpen && (
+                                <button className='sent-button' onClick={openPopup}>Edit</button>
+                            )}
+                            {editOpen && (
+                                <EditChallengeForm challenge={challenge} editState={editOpen} sendDataToParent={sendDataToParent} />
+                            )}
+                            <button className='sent-button' onClick={handleDelete}>Delete</button>
+                        </>
                     )}
-                    {editOpen && (
-                        <EditChallengeForm challenge={challenge} editState={editOpen} sendDataToParent={sendDataToParent} />
-                    )}
-                    <button className='sent-button' onClick={handleDelete}>Delete</button>
                 </div>
             </div>
         </>

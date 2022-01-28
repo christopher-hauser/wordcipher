@@ -16,7 +16,8 @@ html, body {
 #nav-container {
     display: flex;
     position: relative;
-    background-image: linear-gradient(0deg, rgba(241, 241, 241, 0.904) 0%, #f5f5f5 100%);
+    background-color: rgb(61, 61, 61);
+    /* background-image: linear-gradient(15deg, rgba(0, 0, 0, 0.904) 0%, rgb(255, 255, 255)30%); */
     border-bottom: solid 3px white;
     width: 100%;
     height: 80px;
@@ -37,12 +38,12 @@ html, body {
     text-decoration: none;
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
-    color: black;
+    color: white;
     transition: 0.2s;
 }
 
 #nav-links a:hover {
-    color: #52B38D;
+    color:rgba(131, 207, 188, 0.904);
 }
 
 #nav-left {
@@ -83,7 +84,7 @@ html, body {
     width: 50px;
     height: 50px;
     border-radius: 100px;
-    background-image: linear-gradient(0deg, rgb(207, 131, 150) 0%, #97dce1 100%);
+    background-image: linear-gradient(0deg, rgb(209, 86, 116) 0%, rgb(113, 217, 224)100%);
     border: 2px solid white;
     color: white;
     transition: 0.2s;
@@ -105,12 +106,16 @@ html, body {
     background-color: white;
     font-size: 18px;
     transition: 0.2s;
+    color: black;
+
+
 }
 
 #play-button:hover {
     cursor: pointer;
     color: white;
-    background-color: rgb(36, 29, 19);
+    background-color: rgb(209, 86, 116);
+    border: 1px solid white;
 }
 
 #user-list-container {
@@ -119,8 +124,7 @@ html, body {
     justify-content: flex-start;
     align-items: center;
     margin: 0% 10%;
-    background-image: linear-gradient(0deg, rgba(198, 131, 207, 0.253) 0%, #97b9e1a4 50%);
-    height: 90.5%;
+    height: 90.5%; background-image: linear-gradient(0deg, rgba(131, 202, 207, 0.5) 0%, #70ddbc 100%);
 }
 
 .users-name {
@@ -152,7 +156,7 @@ html, body {
     padding: 40px;
     justify-content: space-between;
     align-items: center;
-    background-image: linear-gradient(0deg, rgba(198, 131, 207, 0.904) 0%, #97b9e1 120%);
+    background-image: linear-gradient(45deg, rgb(56, 56, 56) 0%, #6d6d6d 120%);
 }
 
 #explore-title {
@@ -241,4 +245,10 @@ html, body {
      cursor: pointer;
      height: 55px;
      width: 55px;
+ }
+
+ #no-challenges {
+    color: white;
+    font-size: 24px;
+    text-align: center;
  }

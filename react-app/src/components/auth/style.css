@@ -42,7 +42,8 @@
     width: 500px;
     border: 1px solid black;
     border-radius: 5px;
-    background-image: linear-gradient(0deg, rgb(207, 161, 131) 0%, #e1c997 100%);
+    height: 90.5%;
+    background-image: linear-gradient(0deg, rgb(131, 202, 207) 0%, #87dfc4 100%);
 }
 
 #title {
@@ -73,8 +74,7 @@
     align-items: center;
     position: relative;
     bottom: -11px;
-    background-image: linear-gradient(0deg, rgb(207, 161, 131) 0%, #e1c997 100%);
-    width: 100%;
+    background-image: linear-gradient(45deg, rgba(207, 131, 150, 1) 0%, #97dce1 125%);
     height: 10%;
     color: white;
     border-top: 1px solid white;
@@ -133,7 +133,7 @@
 .submit-button:hover {
     cursor: pointer;
     color: white;
-    background-color: rgb(36, 19, 35);
+    background-color: rgb(209, 86, 116);
     border: 1px solid white;
 }
 

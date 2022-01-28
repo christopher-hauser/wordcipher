@@ -34,6 +34,7 @@
     display: flex;
     width: 100%;
     height: 580px;
+    background-image: linear-gradient(145deg, rgba(58, 58, 58) 0%, #717677af 100%);
 }
 
 
@@ -42,7 +43,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: linear-gradient(0deg, rgba(207, 146, 131, 0.904) 0%, #e1d097 100%);
+    background-image: linear-gradient(145deg, rgba(131, 207, 188) 0%, #97dae1af 100%);
 }
 
 .list-name {

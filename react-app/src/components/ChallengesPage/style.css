@@ -55,12 +55,12 @@
     width: 50%;
     display: flex;
     flex-direction:column;
-    background-image: linear-gradient(0deg, rgba(207, 146, 131, 0.904) 0%, #e1d097 100%);
+    background-image: linear-gradient(145deg, rgba(131, 207, 188) 0%, #97dae1af 100%);
 }
 
 #challenges-received {
     width: 50%;
-    background-color: rgb(58, 58, 58);
+    background-image: linear-gradient(145deg, rgba(58, 58, 58) 0%, #717677af 100%);
 }
 
 #top-of-challenges-sent {
