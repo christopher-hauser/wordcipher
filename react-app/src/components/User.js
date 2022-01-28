@@ -23,7 +23,7 @@ function User({ user }) {
     <>
         <div className='users-name-points'>
           <h3 className='users-block-username'>{user?.username}</h3>
-          <p className='users-block-points'>{user.points} pts</p>
+          <p className='users-block-points'>{user.points.toLocaleString("en-US")} pts</p>
         </div>
         <div className='users-options'>
           {loggedInUserId !== +user?.id && sentFriendRequest && !alreadyFriends && (

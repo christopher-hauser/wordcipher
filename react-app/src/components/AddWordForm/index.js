@@ -13,6 +13,7 @@ const AddWordForm = ({ list }) => {
         const errors = [];
         if (word.length !== 5) {
             errors.push('Word must be exactly 5 characters.')
+            return errors;
         }
 
         await fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {

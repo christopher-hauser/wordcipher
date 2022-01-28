@@ -7,16 +7,15 @@ function FriendInfo({ friend }) {
     return (
         <>
             <div className='friend-info'>
-                <h2>{friend.username}</h2>
-                <p>{friend.points} pts</p>
+                <p id='friend-points'>{friend.points.toLocaleString("en-US")} pts</p>
                 {friend.games_won > 0 && friend.games_played > 0 && (
                     <>
-                    <p>{friend.games_won} wins</p>
-                    <p>{Math.floor(friend.games_won/friend.games_played * 100)}% W/L</p>
+                    <p id='friend-wins'>{friend.games_won} wins</p>
+                    <p id='friend-wl'>{Math.floor(friend.games_won/friend.games_played * 100)}% W/L</p>
                     </>
                 )}
                 {friend.games_played === 0 && (
-                    <p>This user hasn't played any games yet!</p>
+                    <p id='friend-no-games'>This user hasn't played any games yet!</p>
                 )}
 
             </div>

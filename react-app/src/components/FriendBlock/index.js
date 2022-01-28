@@ -10,6 +10,7 @@ const FriendBlock = ({ friend }) => {
         const removed = await dispatch(removeOneFriend(friend.id, user.id))
         if (removed) {
             dispatch(getAllFriends)
+            window.location.reload(true)
         }
     }
 

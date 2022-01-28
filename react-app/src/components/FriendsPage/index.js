@@ -52,7 +52,7 @@ function FriendsPage() {
             if (previousSelectedFriend) {
                 previousSelectedFriend.className = 'friend-container'
             }
-                document.getElementById(`friend-${friendGot.id}`).className = 'friend-selected';
+            document.getElementById(`friend-${friendGot.id}`).className = 'friend-selected';
         }
     }
 
@@ -81,10 +81,15 @@ function FriendsPage() {
 
                                     {selectedFriend && (
                                         <>
-                                            <div id='selected-friend-pro-circle'>
-                                                <h2 className='friend-first-letter'>{selectedFriend.username[0].toUpperCase()}</h2>
+                                            <div id='selected-friend-header'>
+                                                <div id='selected-friend-pro-circle'>
+                                                    <h2 className='friend-first-letter'>{selectedFriend.username[0].toUpperCase()}</h2>
+                                                </div>
+                                                <h2 id='friends-username'>{selectedFriend.username}</h2>
                                             </div>
-                                            <FriendInfo friend={selectedFriend} />
+                                            <div id='selected-friend-body'>
+                                                <FriendInfo friend={selectedFriend} />
+                                            </div>
                                         </>
                                     )}
                                 </div>

@@ -19,13 +19,31 @@ const EditChallengeForm = ({ challenge, editState, sendDataToParent }) => {
             'word': word,
         }
 
-        const validate = () => {
+        const validate = async () => {
             let errors = [];
-            if (word.length !== 5) errors.push('Word must be exactly 5 characters.')
+            if (word.length !== 5) {
+                errors.push('Word must be exactly 5 characters.');
+                return errors;
+            }
+            await fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
+                    "x-rapidapi-key": "ae0e954da5msh9667458788d83f1p140318jsn677fc8a6e57c"
+                }
+            }).then(response => {
+                if (!response.ok) {
+                    errors.push('Word must be found in the dictionary.')
+                }
+                return response;
+            }).catch(err => {
+                console.error(err);
+            });
+
             return errors;
         }
 
-        const these_errors = validate();
+        const these_errors = await validate();
 
         if (these_errors.length > 0) {
             setErrors(these_errors);
@@ -59,7 +77,7 @@ const EditChallengeForm = ({ challenge, editState, sendDataToParent }) => {
                         name='word'
                         placeholder="Update..."
                         value={word}
-                        onChange={e => setWord(e.target.value)}
+                        onChange={e => setWord(e.target.value.toUpperCase())}
                     />
                 </div>
             </form>

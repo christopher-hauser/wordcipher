@@ -26,7 +26,10 @@ const NewChallengeForm = () => {
 
     const validate = async () => {
         let errors = [];
-        if (word.length !== 5) errors.push('Word must be exactly 5 characters.')
+        if (word.length !== 5) {
+            errors.push('Word must be exactly 5 characters.');
+            return errors;
+        }
         if (!friend) errors.push('Please select a friend to send your word to.')
         await fetch(`https://wordsapiv1.p.rapidapi.com/words/${word}`, {
             "method": "GET",
@@ -102,7 +105,7 @@ const NewChallengeForm = () => {
                         name='word'
                         placeholder="Enter word..."
                         value={word}
-                        onChange={e => setWord(e.target.value)}
+                        onChange={e => setWord(e.target.value.toUpperCase())}
                     />
                     <button type='submit'>Send</button>
                 </div>
