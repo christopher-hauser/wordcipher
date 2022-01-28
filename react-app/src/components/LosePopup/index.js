@@ -1,7 +1,13 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const LosePopup = ({word}) => {
+    const history = useHistory();
     const playAgain = () => {
+        history.push({
+            pathname: '/',
+            state: {}
+        })
         window.location.reload(true);
     }
 

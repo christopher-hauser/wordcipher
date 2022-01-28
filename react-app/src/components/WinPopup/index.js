@@ -1,8 +1,14 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import './style.css'
 
 const WinPopup = ({ points, attempts }) => {
+    const history = useHistory();
     const playAgain = () => {
+        history.push({
+            pathname: '/',
+            state: {}
+        })
         window.location.reload(true);
     }
 

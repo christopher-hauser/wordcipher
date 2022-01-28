@@ -174,10 +174,12 @@ function GameRandom() {
         if (location.state) {
             if (location.state.challengerId) {
                 challengerId = location.state.challengerId;
+            } else {
+                challengerId = null;
             }
-        } else {
-            challengerId = null;
         }
+
+        console.log(challengerId);
 
         if (guessed_word === actual_word) {
             // AWARD POINTS AND SET MODAL
@@ -190,7 +192,7 @@ function GameRandom() {
 
             const completedGame = {
                 userId,
-                challengerId,
+                challengerId: challengerId,
                 word,
                 attempts,
                 win,
@@ -396,7 +398,7 @@ function GameRandom() {
     }, [guessNumber])
 
     useEffect(async () => {
-        if (location.state) {
+        if (location.state && Object.entries(location.state).length > 0) {
             const word = location.state.word.toUpperCase();
             setThis_word(word);
         } else {

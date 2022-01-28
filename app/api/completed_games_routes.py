@@ -9,6 +9,7 @@ completed_games_routes = Blueprint('completed_games', __name__)
 @login_required
 def send_game_data():
     data = request.get_json()
+
     completed_game = CompletedGame(
         userId=data['userId'],
         challengerId=data['challengerId'],
@@ -23,6 +24,7 @@ def send_game_data():
     win = data['win']
     if challengerId:
         this_challenge = Challenge.query.filter_by(challengerId=challengerId, word=word, status='Incomplete').first()
+        print(this_challenge)
         if win == True:
             this_challenge.status = 'Completed'
         if win == False:
