@@ -177,6 +177,8 @@ function GameRandom() {
             } else {
                 challengerId = null;
             }
+        } else {
+            challengerId = null;
         }
 
         console.log(challengerId);
