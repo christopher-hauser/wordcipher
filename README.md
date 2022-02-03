@@ -1,5 +1,7 @@
 # wordcipher
 
+<img src="https://user-images.githubusercontent.com/85594249/152443604-c7098ef7-2653-4ca3-96aa-151afe8d78d4.JPG" alt="wordcipher-demo-image"/>
+
 ## Summary
 Wordcipher is a word-guessing game based on the popular word game, Wordle. However, Worcipher allows for some additional functionality that the original Wordle does not. Users are able to do the following:
 - Create an account
