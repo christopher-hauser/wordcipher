@@ -27,6 +27,8 @@ You have 6 guesses to get the word correct. After you submit each guess, the let
 
 Good luck and have fun guessing!
 
+<iframe src="https://giphy.com/embed/2w5tlgZdcEjkJvGHxc" width="480" height="260" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/2w5tlgZdcEjkJvGHxc">via GIPHY</a></p>
+
 ## Overall Structure
 ### Back End
 Wordcipher was built using Python, the web framework Flask, and a PostgreSQL database. Data requests are fulfilled with JSON API and use RESTful routes across the entire project. The words that are generated randomly come from WordsAPI. Words input by the user also make fetch requests to WordsAPI to check if the word has a definition in the dictionary, and therefore is valid.
