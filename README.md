@@ -27,7 +27,7 @@ You have 6 guesses to get the word correct. After you submit each guess, the let
 
 Good luck and have fun guessing!
 
-<img src="https://giphy.com/embed/2w5tlgZdcEjkJvGHxc/giphy.gif" width="40" height="40" />
+<img src="https://giphy.com/gifs/2w5tlgZdcEjkJvGHxc" width="40" height="40" />
 
 ## Overall Structure
 ### Back End
