@@ -1,5 +1,7 @@
 # wordcipher
 
+<img src="https://user-images.githubusercontent.com/85594249/152443604-c7098ef7-2653-4ca3-96aa-151afe8d78d4.JPG" alt="wordcipher-demo-image"/>
+
 ## Summary
 Wordcipher is a word-guessing game based on the popular word game, Wordle. However, Worcipher allows for some additional functionality that the original Wordle does not. Users are able to do the following:
 - Create an account
@@ -24,6 +26,8 @@ In Wordcipher, you are tasked with figuring out the word that has been provided 
 You have 6 guesses to get the word correct. After you submit each guess, the letters in your answer will light up a certain color to indicate your accuracy. If a letter turns yellow, it is in the word, but not in the spot you had it. If a letter turns green, it is in the word and in the right spot! If a letter turns gray, it isn't in the word at all.
 
 Good luck and have fun guessing!
+
+![](https://media.giphy.com/media/2w5tlgZdcEjkJvGHxc/giphy.gif)
 
 ## Overall Structure
 ### Back End
