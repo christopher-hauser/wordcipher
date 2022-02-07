@@ -35,7 +35,22 @@ function GameRandom() {
             .catch(err => {
                 console.error(err);
             });
-        return data.word.toUpperCase();
+
+        const word = data.word.toUpperCase();
+        const wordConfirmed = checkRandomWord(word);
+        console.log('CONFIRMED:', wordConfirmed)
+        return wordConfirmed;
+    }
+
+    const checkRandomWord = word => {
+        const regex = /^[A-Z]+$/;
+        const noNumsOrChars = regex.test(word)
+        if (noNumsOrChars && (word.includes('A') || word.includes('E') || word.includes('I') || word.includes('O') || word.includes('U') || word.includes('Y'))) {
+            return word;
+        } else {
+            const newWord = getRandomWord();
+            return newWord;
+        }
     }
 
 
