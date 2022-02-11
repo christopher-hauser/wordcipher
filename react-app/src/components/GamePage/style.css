@@ -1,7 +1,9 @@
 #game-page-container {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
-    height: 91.1%;
+    /* min-width: 50em; */
+    width: 100%;
 }
 
 #wordcipher-title {
@@ -11,15 +13,18 @@
 }
 
 #instructions-container {
+    box-sizing: border-box;
     width: 50%;
     height: 100%;
     background-image: linear-gradient(0deg, rgba(131, 207, 188, 0.904) 0%, #97D9E1 100%);
-
 }
 
 #inner-instructions-container {
     box-sizing: border-box;
-    padding: 150px 200px 150px 125px;
+    padding: 12rem 7.5rem 12.5rem 7.5rem;
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
 }
 
 #welcome-wordcipher {
@@ -39,4 +44,5 @@
 
 .instructions {
     font-size: 18px;
+    overflow-y: scroll;
 }

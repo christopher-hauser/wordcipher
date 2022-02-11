@@ -1,12 +1,19 @@
 /* TODO Add site wide styles */
 
 html, body {
+    box-sizing: border-box;
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: rgb(255, 255, 255);
 }
 
+#root {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
 
 * {
     font-family: 'Nunito', sans-serif;
@@ -17,21 +24,22 @@ html, body {
     display: flex;
     position: relative;
     background-color: rgb(61, 61, 61);
-    /* background-image: linear-gradient(15deg, rgba(0, 0, 0, 0.904) 0%, rgb(255, 255, 255)30%); */
     border-bottom: solid 3px white;
     width: 100%;
     height: 80px;
 }
 
 #nav-links {
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    position: relative;
     width: 100%;
+    align-items: center;
     margin: 0 2%;
     justify-content: space-between;
     list-style-type: none;
-    min-width: 1200px;
+    /* min-width: 1200px; */
+    background-color: rgb(61, 61, 61);
+
 }
 
 #nav-links a {
@@ -55,9 +63,8 @@ html, body {
 
 #nav-right {
     display: flex;
-    justify-content: flex-end;
-    width: 40%;
-    margin-right: 100px;
+    justify-content: space-between;
+    width: 60%;
 }
 
 #nav-logout {
@@ -74,7 +81,7 @@ html, body {
 #logged-in-nav-right {
     display: flex;
     justify-content: space-between;
-    width: 2000px;
+    width: 100%;
 }
 
 #user-profile-circle {
@@ -107,7 +114,7 @@ html, body {
     font-size: 18px;
     transition: 0.2s;
     color: black;
-
+    margin-left: 2em;
 
 }
 

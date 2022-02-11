@@ -1,12 +1,14 @@
 #game-container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     background-color: white;
-    margin-top: -20px;
+    padding-right: 5em;
+    padding-left: 5em;
 }
 
 .guess-word {
@@ -15,6 +17,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 50%;
+    min-width: 25em;
 }
 
 .guess-letter {
