@@ -258,6 +258,9 @@ function GameRandom() {
         const thirdLetter = document.querySelector(`input[name='${guessNumber}-3']`).value;
         const fourthLetter = document.querySelector(`input[name='${guessNumber}-4']`).value;
         const fifthLetter = document.querySelector(`input[name='${guessNumber}-5']`).value;
+        const lastInput = document.querySelector(`input[name='${guessNumber}-5']`);
+
+        lastInput.blur();
 
         // const animateFakeWord = () => {
         //     console.log('animate')
