@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: flex-start;
     width: 50%;
-    min-width: 25em;
+    min-width: 32em;
 }
 
 .guess-letter {

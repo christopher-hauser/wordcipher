@@ -64,7 +64,7 @@ html, body {
 #nav-right {
     display: flex;
     justify-content: space-between;
-    width: 60%;
+    width: 50%;
 }
 
 #nav-logout {
@@ -73,6 +73,9 @@ html, body {
 }
 
 #logged-out-nav-right {
+    position: absolute;
+    right: 5%;
+    top: 1.75em;
     display: flex;
     justify-content: space-between;
     width: 200px;
