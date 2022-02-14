@@ -1,9 +1,136 @@
-/* TODO Add site wide styles */
+@media screen and (max-width: 478px) {
+
+    #nav-links a {
+        font-size: 10px;
+    }
+
+    #nav-right {
+        width: 65%;
+        margin-right: 10px;
+    }
+
+    #nav-logout {
+        width: 50px;
+        height: 20px;
+        font-size: 12px;
+    }
+
+    #play-button {
+        width: 50px;
+        height: 20px;
+        font-size: 12px;
+        margin-left: 2em;
+    }
+    #user-profile-circle {
+        width: 30px;
+        height: 30px;
+    }
+
+    #user-profile-letter {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 479px) and (max-width: 767px) {
+    #nav-links a {
+        font-size: 14px;
+    }
+
+    #nav-right {
+        width: 65%;
+        margin-right: 10px;
+    }
+
+    #nav-logout {
+        width: 60px;
+        height: 24px;
+        font-size: 14px;
+    }
+
+    #play-button {
+        width: 60px;
+        height: 24px;
+        font-size: 14px;
+        margin-left: 2em;
+    }
+
+    #user-profile-circle {
+        width: 40px;
+        height: 40px;
+    }
+
+    #user-profile-letter {
+        font-size: 22px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #nav-links a {
+        font-size: 18px;
+    }
+    #nav-right {
+        width: 60%;
+    }
+    #logged-in-nav-right {
+        width: 60%;
+    }
+
+    #nav-logout {
+        width: 80px;
+        height: 30px;
+    }
+
+    #play-button {
+        width: 80px;
+        height: 30px;
+        font-size: 18px;
+        margin-left: 2em;
+    }
+    #user-profile-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    #user-profile-letter {
+        font-size: 28px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #nav-links a {
+        font-size: 20px;
+    }
+
+    #nav-right {
+        width: 50%;
+    }
+
+    #nav-logout {
+        width: 80px;
+        height: 30px;
+    }
+
+    #play-button {
+        width: 80px;
+        height: 30px;
+        font-size: 18px;
+        margin-left: 2em;
+    }
+    #user-profile-circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    #user-profile-letter {
+        font-size: 28px;
+    }
+}
 
 html, body {
     box-sizing: border-box;
     height: 100%;
     width: 100%;
+    min-width: 375px;
     margin: 0;
     padding: 0;
     background-color: rgb(255, 255, 255);
@@ -37,7 +164,6 @@ html, body {
     margin: 0 2%;
     justify-content: space-between;
     list-style-type: none;
-    /* min-width: 1200px; */
     background-color: rgb(61, 61, 61);
 
 }
@@ -45,7 +171,6 @@ html, body {
 #nav-links a {
     text-decoration: none;
     font-family: 'Nunito', sans-serif;
-    font-size: 20px;
     color: white;
     transition: 0.2s;
 }
@@ -64,12 +189,6 @@ html, body {
 #nav-right {
     display: flex;
     justify-content: space-between;
-    width: 50%;
-}
-
-#nav-logout {
-    width: 80px;
-    height: 30px;
 }
 
 #logged-out-nav-right {
@@ -91,34 +210,23 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px;
-    height: 50px;
     border-radius: 100px;
-    background-image: linear-gradient(0deg, rgb(209, 86, 116) 0%, rgb(113, 217, 224)100%);
     border: 2px solid white;
     color: white;
+    background-image: linear-gradient(0deg, rgb(209, 86, 116) 0%, rgb(113, 217, 224)100%);
     transition: 0.2s;
 }
 
-
-#user-profile-letter {
-    font-size: 28px;
-}
 
 #play-button {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid rgb(36, 29, 19);
-    width: 80px;
-    height: 30px;
     border-radius: 5px;
     background-color: white;
-    font-size: 18px;
     transition: 0.2s;
     color: black;
-    margin-left: 2em;
-
 }
 
 #play-button:hover {

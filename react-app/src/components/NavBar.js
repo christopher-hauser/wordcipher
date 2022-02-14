@@ -26,22 +26,22 @@ const NavBar = () => {
           )}
         </div>
         <div id='nav-right'>
-          <div id='logged-out-nav-right'>
-            {!user?.id && (
+          {!user?.id && (
+            <div id='logged-out-nav-right'>
               <div>
                 <NavLink to='/login' exact={true} activeClassName='active'>
                   Login
                 </NavLink>
               </div>
-            )}
-            {!user?.id && (
-              <div>
-                <NavLink to='/sign-up' exact={true} activeClassName='active'>
-                  Sign Up
-                </NavLink>
-              </div>
-            )}
-          </div>
+              {!user?.id && (
+                <div>
+                  <NavLink to='/sign-up' exact={true} activeClassName='active'>
+                    Sign Up
+                  </NavLink>
+                </div>
+              )}
+            </div>
+          )}
           {user?.id && (
             <div id='logged-in-nav-right'>
               <>
