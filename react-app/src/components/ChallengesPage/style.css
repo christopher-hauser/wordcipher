@@ -1,8 +1,76 @@
+@media screen and (max-width: 478px) {
+    #challenges-page-container {
+        margin: 0 5%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 250px;
+    }
+
+    #challenges-sent {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 478px) and (max-width: 767px)  {
+    #challenges-page-container {
+        margin: 0 10%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 300px;
+    }
+
+    #challenges-sent {
+        width: 100%;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #challenges-page-container {
+        margin: 0 15%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 200px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #challenges-page-container {
+        margin: 0 15%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 300px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+}
+
 #challenges-page-container {
     display: flex;
     flex-direction: column;
-    margin: 0 20%;
-    min-width: 950px;
 }
 
 #new-challenge-form {
@@ -52,7 +120,6 @@
 }
 
 #challenges-sent {
-    width: 50%;
     display: flex;
     flex-direction:column;
     background-image: linear-gradient(145deg, rgba(131, 207, 188) 0%, #97dae1af 100%);
@@ -106,13 +173,9 @@
 
 .challenge-sent-container {
     display: flex;
-    margin: 10px 20px;
     border: 1px solid black;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 15px;
-    height: 100px;
-    min-width: 460px;
 }
 
 .status-play {
