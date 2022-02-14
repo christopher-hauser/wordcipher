@@ -1,3 +1,174 @@
+@media screen and (max-width: 478px) {
+    #profile-inner-container {
+        margin: 30px 20px;
+        width: 80%;
+    }
+
+    #user-circle {
+        width: 100px;
+        height: 100px;
+        margin: 20% 0% 5% 0%;
+    }
+
+    #users-points {
+        font-size: 40px;
+        margin: 10% 0 0 0;
+    }
+
+    #games-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 25%;
+        min-width: 250px;
+        min-height: 300px;
+    }
+
+    #wins {
+        font-size: 28px;
+        padding: 15px 0px 0px 0px;
+        margin: 50px 0 0 0;
+    }
+
+    #percent {
+        text-align: center;
+        width: 50%;
+        font-size: 28px;
+        border-top: 1px solid white;
+        padding: 30px 0px 15px 0px;
+    }
+}
+
+@media screen and (min-width: 479px) and (max-width: 767px) {
+    #profile-inner-container {
+        margin: 30px 20px;
+        width: 80%;
+    }
+
+    #user-circle {
+        width: 125px;
+        height: 125px;
+        margin: 15% 0% 0% 0%;
+    }
+
+    #users-points {
+        font-size: 40px;
+        margin: 5% 0 0 0;
+    }
+
+    #games-info-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 25%;
+        min-width: 250px;
+    }
+
+    #wins {
+        font-size: 28px;
+        padding: 15px 0px 0px 0px;
+        margin: 30px 0 0 0;
+    }
+
+    #percent {
+        text-align: center;
+        width: 50%;
+        font-size: 28px;
+        border-top: 1px solid white;
+        padding: 30px 0px 15px 0px;
+        margin-bottom: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #profile-inner-container {
+        margin: 30px 20px;
+        width: 60%;
+    }
+
+    #user-circle {
+        width: 150px;
+        height: 150px;
+        margin: 15% 0% 5% 0%;
+    }
+
+    #games-info-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        min-width: 600px;
+    }
+
+    #users-points {
+        font-size: 40px;
+        margin: 5% 0 0 0;
+    }
+
+    #wins {
+        font-size: 34px;
+        padding: 15px 0px 15px 0px;
+        margin-right: -20px;
+        margin-left: 20px;
+    }
+
+    #percent {
+        text-align: left;
+        width: 50%;
+        font-size: 34px;
+        border-left: 1px solid white;
+        padding: 15px 0px 15px 0px;
+        padding-left: 50px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    #profile-inner-container {
+        margin: 30px 20px;
+        width: 45%;
+    }
+
+    #user-circle {
+        width: 180px;
+        height: 180px;
+        margin: 10% 0% 5% 0%;
+    }
+
+    #games-info-container {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 25%;
+        min-width: 600px;
+    }
+
+    #users-points {
+        font-size: 40px;
+        margin: 5% 0 0 0;
+    }
+
+    #wins {
+        font-size: 40px;
+        padding: 15px 0px 15px 0px;
+        margin-right: -20px;
+        margin-left: 20px;
+    }
+
+    #percent {
+        text-align: left;
+        width: 50%;
+        font-size: 40px;
+        border-left: 1px solid white;
+        padding: 15px 0px 15px 0px;
+        padding-left: 50px;
+    }
+}
+
 #profile-container {
     display: flex;
     justify-content: center;
@@ -12,10 +183,8 @@
     box-sizing: border-box;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 30px 20px;
     align-items: center;
     height: 90%;
-    width: 40%;
     border: 4px solid white;
     background-image: linear-gradient(0deg, rgba(207, 131, 150, 1) 0%, #97dce1 100%);
 }
@@ -25,18 +194,16 @@
     flex-direction: column;
     align-items: center;
     border-bottom: 1px solid white;
+    width: 70%;
 }
 
 #user-circle {
-    width: 200px;
-    height: 200px;
     border: 2px solid white;
     border-radius: 300px;
     background-color: rgba(221, 41, 71, 0.603);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 15% 0% 5% 0%;
 }
 
 #user-circle-letter {
@@ -48,7 +215,7 @@
 #users-username {
     font-size: 30px;
     color: white;
-    margin: 10% 0 5% 0;
+    margin: 8% 0 5% 0;
     font-family: 'Lora';
 }
 
@@ -59,29 +226,14 @@
 }
 
 #users-points {
-    font-size: 60px;
     color: white;
-    margin: 6% 0 0 0;
     font-family: 'Lora';
-}
-
-#games-info-container {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    width: 80%;
-    height: 25%;
-    min-width: 600px;
 }
 
 #wins {
     box-sizing: border-box;
     width: 50%;
-    font-size: 40px;
     color: white;
-    padding: 15px 0px 15px 0px;
-    margin-right: -20px;
-    margin-left: 20px;
     text-align: center;
     flex-wrap: wrap;
     font-family: 'Lora';
@@ -89,12 +241,6 @@
 
 #percent {
     box-sizing: border-box;
-    width: 50%;
-    font-size: 40px;
-    color: white;
-    border-left: 1px solid white;
-    padding: 15px 0px 15px 0px;
-    padding-left: 50px;
-    text-align: left;
     font-family: 'Lora';
+    color: white;
 }
