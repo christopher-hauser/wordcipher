@@ -1,6 +1,6 @@
 @media screen and (max-width: 478px) {
     #challenges-page-container {
-        margin: 0 5%;
+        margin: 0 0%;
     }
 
     .challenge-sent-container {
@@ -14,11 +14,25 @@
         width: 100%;
     }
 
+    #challenges-received {
+        width: 100%;
+    }
+
+    #new-challenge-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
 }
 
 @media screen and (min-width: 478px) and (max-width: 767px)  {
     #challenges-page-container {
-        margin: 0 10%;
+        margin: 0 0%;
     }
 
     .challenge-sent-container {
@@ -32,11 +46,25 @@
         width: 100%;
     }
 
+    #challenges-received {
+        width: 100%;
+    }
+
+    #new-challenge-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     #challenges-page-container {
-        margin: 0 15%;
+        margin: 0 5%;
     }
 
     .challenge-sent-container {
@@ -48,6 +76,23 @@
 
     #challenges-sent {
         width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
     }
 }
 
@@ -65,6 +110,23 @@
 
     #challenges-sent {
         width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
     }
 }
 
@@ -102,11 +164,6 @@
     background-color: rgb(36, 29, 19);
 }
 
-#new-challenge-inputs input {
-    width: 100px;
-    margin: 0px 20px;
-}
-
 
 .challenge-error-div {
     display: flex;
@@ -126,7 +183,6 @@
 }
 
 #challenges-received {
-    width: 50%;
     background-image: linear-gradient(145deg, rgba(58, 58, 58) 0%, #717677af 100%);
 }
 
@@ -255,11 +311,9 @@
 }
 
 #bottom-challenges-sent {
-    height: 520px;
     overflow-y: scroll;
 }
 
 #challenges-received-list {
-    height: 520px;
     overflow-y: scroll;
 }
