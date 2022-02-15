@@ -71,7 +71,7 @@
         margin: 10px 20px;
         padding: 0px 15px;
         height: 100px;
-        min-width: 200px;
+        min-width: 250px;
     }
 
     #challenges-sent {
@@ -94,11 +94,15 @@
     #challenges-received-list {
         height: 520px;
     }
+
+    .challenge-sent-container p {
+        font-size: 12px;
+    }
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 1179px) {
     #challenges-page-container {
-        margin: 0 15%;
+        margin: 0 10%;
     }
 
     .challenge-sent-container {
@@ -127,6 +131,50 @@
 
     #challenges-received-list {
         height: 520px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 14px;
+    }
+
+}
+
+@media screen and (min-width: 1180px) {
+
+    #challenges-page-container {
+        margin: 0 20%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 350px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 14px;
     }
 }
 
@@ -269,13 +317,14 @@
 
 .sent-button {
     border: 1px solid rgb(36, 29, 19);
-    width: 70px;
-    height: 30px;
+    width: 55px;
+    height: 25px;
     border-radius: 5px;
     background-color: white;
-    font-size: 18px;
+    font-size: 14px;
     transition: 0.2s;
-    margin-left: 10px;
+    margin-left: 5px;
+    text-align: center;
 }
 
 .sent-button:hover {
