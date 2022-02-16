@@ -14,7 +14,56 @@
     }
 
     #list-explain {
+        text-align: center;
+        font-size: 12px;
+        padding: 0px 10px;
+    }
+
+    #lists-and-instructions {
+        width: 35%;
+    }
+
+    #player-list-words {
+        width: 65%;
+    }
+
+    .list-page-container {
+        margin: 0%;
+    }
+
+    #create-list-button {
+        width: 70px;
+        height: 25px;
+        margin-top: 15px;
         font-size: 14px;
+    }
+
+    #new-list-input {
+        width: 100px;
+        font-size: 12px;
+    }
+
+    #browse-list-title {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    #words-title {
+        font-size: 14px;
+    }
+
+    #select-list-text {
+        display: none;
+    }
+
+    .top-of-player-lists {
+        height: 100px;
+    }
+
+    #top-of-words {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -34,7 +83,56 @@
     }
 
     #list-explain {
+        text-align: center;
         font-size: 16px;
+        padding: 0px 40px;
+    }
+
+    #lists-and-instructions {
+        width: 35%;
+    }
+
+    #player-list-words {
+        width: 65%;
+    }
+
+    .list-page-container {
+        margin: 0%;
+    }
+
+    #create-list-button {
+        width: 80px;
+        height: 25px;
+        margin-top: 15px;
+        font-size: 16px;
+    }
+
+    #new-list-input {
+        width: 125px;
+        font-size: 14px;
+    }
+
+    #browse-list-title {
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+
+    #words-title {
+        font-size: 14px;
+    }
+
+    #select-list-text {
+        display: none;
+    }
+
+    .top-of-player-lists {
+        height: 100px;
+    }
+
+    #top-of-words {
+        height: 100px;
+        display: flex;
+        justify-content: space-between;
     }
 }
 
@@ -54,7 +152,46 @@
     }
 
     #list-explain {
+        font-size: 18px;
+        text-align: center;
+        padding: 0px 50px;
+    }
+
+    #player-list-words {
+        width: 50%;
+    }
+
+    #lists-and-instructions {
+        width: 50%;
+    }
+
+    .list-page-container {
+        margin: 0% 10%;
+    }
+
+    #create-list-button {
+        width: 90px;
+        height: 30px;
+        margin-top: 15px;
+        font-size: 18px;
+    }
+
+    #new-list-input {
+        width: 160px;
+        font-size: 16px;
+    }
+
+    #browse-list-title {
         font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .top-of-player-lists {
+        height: 120px;
+    }
+
+    #top-of-words {
+        height: 120px;
     }
 }
 
@@ -76,11 +213,44 @@
 
     #list-explain {
         font-size: 20px;
+        text-align: center;
+        padding: 0px 60px;
+    }
+
+    #player-list-words {
+        width: 50%;
+    }
+
+    #lists-and-instructions {
+        width: 50%;
+    }
+
+    .list-page-container {
+        margin: 0% 20%;
+    }
+
+    #create-list-button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10px;
+        font-size: 18px;
+    }
+
+    #browse-list-title {
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+
+    .top-of-player-lists {
+        height: 120px;
+    }
+
+    #top-of-words {
+        height: 120px;
     }
 }
 
 .list-page-container {
-    margin: 0% 20%;
     display: flex;
     flex-direction: column;
 }
@@ -124,11 +294,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: rgba(36, 29, 19, 0.623); */
     width: 100%;
     height: 80%;
     transition: 0.2s;
     overflow-y: scroll;
+    padding-left: 5px;
 }
 
 ::-webkit-scrollbar {
@@ -136,10 +306,9 @@
   }
 
 #browse-list-title {
-    font-size: 20px;
+    text-align: center;
     font-family: 'Nunito', sans-serif;
     font-weight: 100;
-    margin-bottom: 0px;
     color: white;
 }
 
@@ -151,7 +320,6 @@
 #lists-and-instructions {
     display: flex;
     flex-direction: column;
-    width: 50%;
     height: 100%;
     background-image: linear-gradient(145deg, rgba(58, 58, 58) 0%, #717677af 100%);
 }
@@ -160,9 +328,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: rgba(36, 29, 19, 0.623); */
     border-bottom: 2px solid white;
-    height: 120px;
 }
 
 #empty-list {

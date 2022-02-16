@@ -60,7 +60,6 @@ const AddWordForm = ({ list }) => {
                     ))}
                 </div>
                 <div id='add-word-container'>
-                    <div>
                         <input
                             id='add-word-input'
                             name='word'
@@ -68,9 +67,7 @@ const AddWordForm = ({ list }) => {
                             value={word}
                             onChange={e => setWord(e.target.value)}
                         />
-                    </div>
                     <button className='list-page-button' type='submit'>Add!</button>
-
                 </div>
             </form>
         </div>

@@ -1,20 +1,193 @@
 @media screen and (max-width: 478px) {
     .lists-and-words {
-        flex-direction: column;
         width: 100%;
+    }
+
+    .list-name {
+        font-size: 16px;
+    }
+
+    .list-username {
+        font-size: 14px;
+    }
+
+    .list-page-button {
+        width: 45px;
+        font-size: 12px;
+        height: 20px;
+    }
+
+    .list-container {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        height: 100px;
+        margin: 10px;
+        padding-bottom: 10px;
+    }
+
+    .active-list {
+        flex-direction: column;
+        width: 80%;
+        height: 100px;
+        margin: 10px;
+        padding-bottom: 10px;
+    }
+
+    .list-options-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-list-input {
+        font-size: 8px;
+        width: 60px;
+    }
+
+    .list-name-and-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #add-word-input {
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    #add-word-container {
+        margin-bottom: 10px;
     }
 }
 
 @media screen and (min-width: 478px) and (max-width: 767px)  {
     .lists-and-words {
-        flex-direction: column;
         width: 100%;
     }
+
+    .list-name {
+        font-size: 16px;
+    }
+
+    .list-username {
+        font-size: 14px;
+    }
+
+    .list-page-button {
+        width: 45px;
+        font-size: 12px;
+        height: 20px;
+    }
+
+    .list-container {
+        flex-direction: column;
+        align-items: center;
+        width: 80%;
+        height: 100px;
+        margin: 10px;
+        padding-bottom: 10px;
+    }
+
+    .active-list {
+        flex-direction: column;
+        width: 80%;
+        height: 100px;
+        margin: 10px;
+        padding-bottom: 10px;
+    }
+
+    .list-options-div {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-list-input {
+        font-size: 10px;
+        width: 80px;
+        margin-bottom: 6px;
+    }
+
+    .list-name-and-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #add-word-input {
+        width: 150px;
+        height: 20px;
+        font-size: 12px;
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    #add-word-container {
+        margin-bottom: 10px;
+    }
+
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .lists-and-words {
         width: 100%;
+    }
+
+    .list-name {
+        font-size: 24px;
+    }
+
+    .list-username {
+        font-size: 14px;
+    }
+
+    .list-page-button {
+        width: 60px;
+        font-size: 14px;
+        height: 24px;
+    }
+
+    .list-container {
+        width: 80%;
+        height: 70px;
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    .active-list {
+        width: 80%;
+        height: 70px;
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    .list-options-div {
+        align-items: center;
+    }
+
+    .edit-list-input {
+        font-size: 12px;
+        width: 100px;
+        margin-bottom: 6px;
+    }
+
+    .list-name-and-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #add-word-input {
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    #add-word-container {
+        margin-bottom: 10px;
     }
 }
 
@@ -22,18 +195,68 @@
     .lists-and-words {
         width: 100%;
     }
+
+    .list-name {
+        font-size: 24px;
+    }
+
+    .list-username {
+        font-size: 14px;
+    }
+
+    .list-page-button {
+        width: 60px;
+        font-size: 14px;
+        height: 24px;
+    }
+
+    .list-container {
+        width: 90%;
+        height: 70px;
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    .active-list {
+        width: 90%;
+        height: 70px;
+        margin: 10px;
+        padding: 0px 10px;
+    }
+
+    .list-options-div {
+        align-items: center;
+    }
+
+    .edit-list-input {
+        font-size: 13px;
+        width: 115px;
+        margin-bottom: 6px;
+    }
+
+    .list-name-and-user {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    #add-word-input {
+        margin-right: 10px;
+        padding-left: 10px;
+    }
+
+    #add-word-container {
+        margin-bottom: 10px;
+    }
 }
 
 
 .list-container {
     display: flex;
-    width: 90%;
-    height: 100px;
     justify-content: space-between;
     align-items: center;
     border: 1px solid white;
-    margin: 10px;
-    padding: 0px 10px;
     transition: 0.2s;
 }
 
@@ -45,13 +268,9 @@
 
 .active-list {
     display: flex;
-    width: 90%;
-    height: 100px;
     justify-content: space-between;
     align-items: center;
     border: 1px solid white;
-    margin: 10px;
-    padding: 0px 10px;
     transition: 0.2s;
     background-color: rgba(36, 29, 19, 0.61);
     color: rgba(36, 29, 19, 0.61);
@@ -73,17 +292,12 @@
 .list-name {
     margin: 0;
     color: white;
-    font-size: 24px;
 }
 
 .list-username {
     margin: 0;
     color: white;
 
-}
-
-.edit-list-input {
-    width: 150px;
 }
 
 .list-options-div {
@@ -109,16 +323,15 @@
 
 #words-title {
     font-size: 20px;
+    margin-bottom: 0px;
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
-    margin-bottom: 0px;
     color: rgb(255, 255, 255);
 }
 
 #top-of-words {
     display: flex;
     width: 100%;
-    height: 120px;
     flex-direction: column;
     align-items: center;
     border-bottom: 2px solid white;
@@ -126,26 +339,16 @@
 
 #add-word-container {
     display: flex;
-    justify-content: space-between;
-    width: 90%;
+    justify-content: center;
     align-items: center;
-    margin-top: 10px;
-}
-
-#add-word-input {
-    margin-right: 10px;
-    padding-left: 10px;
+    width: 100%;
 }
 
 .list-page-button {
     border: 1px solid rgb(36, 29, 19);
-    width: 60px;
-    height: 25px;
     border-radius: 5px;
     background-color: white;
-    font-size: 16px;
     transition: 0.2s;
-    margin-left: 5px;
 }
 
 .list-page-button:hover {
