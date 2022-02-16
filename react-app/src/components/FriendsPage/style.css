@@ -535,6 +535,7 @@
 .friend-selected button {
     border: 1px solid black;
     transition: 0.5s;
+    background-color: white;
 }
 
 .friend-selected button:hover {

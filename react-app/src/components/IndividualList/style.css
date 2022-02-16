@@ -13,8 +13,9 @@
     }
 
     .list-page-button {
+        text-align: center;
         width: 45px;
-        font-size: 12px;
+        font-size: 10px;
         height: 20px;
     }
 
@@ -63,6 +64,16 @@
     #add-word-container {
         margin-bottom: 10px;
     }
+
+    .word-container p {
+        font-size: 14px;
+    }
+
+    .remove-word-button {
+        width: 55px;
+        height: 20px;
+        font-size: 12px;
+    }
 }
 
 @media screen and (min-width: 478px) and (max-width: 767px)  {
@@ -82,7 +93,7 @@
 
     .list-page-button {
         width: 45px;
-        font-size: 12px;
+        font-size: 10px;
         height: 20px;
     }
 
@@ -132,6 +143,11 @@
         margin-bottom: 10px;
     }
 
+    .remove-word-button {
+        width: 70px;
+        height: 25px;
+        font-size: 16px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -194,6 +210,12 @@
     #add-word-container {
         margin-bottom: 10px;
     }
+
+    .remove-word-button {
+        width: 70px;
+        height: 25px;
+        font-size: 16px;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -254,6 +276,12 @@
 
     #add-word-container {
         margin-bottom: 10px;
+    }
+
+    .remove-word-button {
+        width: 70px;
+        height: 25px;
+        font-size: 16px;
     }
 }
 
@@ -365,11 +393,8 @@
 
 .remove-word-button {
     border: 1px solid rgb(36, 29, 19);
-    width: 70px;
-    height: 25px;
     border-radius: 5px;
     background-color: white;
-    font-size: 16px;
     transition: 0.2s;
     margin-left: 5px;
 }

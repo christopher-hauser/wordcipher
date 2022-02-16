@@ -304,6 +304,7 @@
     transition: 0.2s;
     overflow-y: scroll;
     padding-left: 0px;
+    min-height: 500px;
 }
 
 ::-webkit-scrollbar {
