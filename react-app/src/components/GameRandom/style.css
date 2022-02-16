@@ -1,12 +1,101 @@
+@media screen and (max-width: 478px) {
+    .guess-letter {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        margin: 0px 10px;
+    }
+
+    #guess-letter-container {
+        width: 600px;
+    }
+
+    .guess-word {
+        width: 400px;
+    }
+
+    #game-container {
+        min-width: 375px;
+        padding-right: 0.5em;
+        padding-left: 2em;
+        padding-top: 0.5em;
+    }
+}
+
+@media screen and (min-width: 479px) and (max-width: 767px) {
+    .guess-letter {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        margin: 0px 10px;
+    }
+
+    #guess-letter-container {
+        width: 600px;
+    }
+
+    .guess-word {
+        width: 400px;
+    }
+
+    #game-container {
+        width: 480px;
+        padding-right: 2em;
+        padding-left: 2em;
+        padding-top: 2em;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .guess-letter {
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+        margin: 0px 10px;
+    }
+
+    .guess-word {
+        width: 400px;
+    }
+
+    #game-container {
+        width: 50%;
+        padding-right: 4em;
+        padding-left: 4em;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .guess-letter {
+        width: 50px;
+        height: 50px;
+        font-size: 40px;
+        margin: 0px 15px;
+    }
+
+    .guess-word {
+        width: 520px;
+    }
+
+    #game-container {
+        width: 50%;
+        padding-right: 5em;
+        padding-left: 5em;
+    }
+
+    #guess-letter-container {
+        min-width: 525px;
+    }
+}
+
 #game-container {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-content: center;
     background-color: white;
-    margin-top: -20px;
 }
 
 .guess-word {
@@ -14,15 +103,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    width: 50%;
 }
 
 .guess-letter {
-    width: 50px;
-    height: 50px;
-    font-size: 40px;
     text-align: center;
-    margin: 0px 15px;
 }
 
 .green {
@@ -64,11 +148,6 @@
     display: none;
 }
 
-.guess-letter-container {
-    width: 80%;
-    min-width: 440px;
-}
-
 .guess-button-container {
-    width: 10%;
+    width: 15%;
 }

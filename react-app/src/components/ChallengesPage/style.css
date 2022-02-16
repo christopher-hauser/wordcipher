@@ -1,8 +1,273 @@
+@media screen and (max-width: 478px) {
+    #challenges-page-container {
+        margin: 0 0%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 250px;
+    }
+
+    #challenges-sent {
+        width: 100%;
+    }
+
+    #challenges-received {
+        width: 100%;
+    }
+
+    #new-challenge-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 12px;
+    }
+
+    .sent-button {
+        width: 50px;
+        height: 20px;
+        border-radius: 5px;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .edit-challenge-input {
+        width: 60px;
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+}
+
+@media screen and (min-width: 478px) and (max-width: 767px)  {
+    #challenges-page-container {
+        margin: 0 0%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 300px;
+    }
+
+    #challenges-sent {
+        width: 100%;
+    }
+
+    #challenges-received {
+        width: 100%;
+    }
+
+    #new-challenge-inputs {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    .sent-button {
+        width: 55px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .edit-challenge-input {
+        width: 80px;
+        font-size: 12px;
+    }
+
+    .edit-challenge-word {
+        width: 100px;
+    }
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #challenges-page-container {
+        margin: 0 5%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 250px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 12px;
+    }
+
+    .sent-button {
+        width: 55px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .edit-challenge-input {
+        width: 50px;
+        font-size: 12px;
+    }
+
+    .edit-challenge-word {
+        width: 60px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1179px) {
+    #challenges-page-container {
+        margin: 0 10%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 300px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 14px;
+    }
+
+    .sent-button {
+        width: 55px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .edit-challenge-input {
+        width: 80px;
+        font-size: 14px;
+    }
+
+    .edit-challenge-word {
+        width: 100px;
+    }
+
+}
+
+@media screen and (min-width: 1180px) {
+
+    #challenges-page-container {
+        margin: 0 18%;
+    }
+
+    .challenge-sent-container {
+        margin: 10px 20px;
+        padding: 0px 15px;
+        height: 100px;
+        min-width: 350px;
+    }
+
+    #challenges-sent {
+        width: 50%;
+    }
+
+    #challenges-received {
+        width: 50%;
+    }
+
+    #new-challenge-inputs input {
+        width: 125px;
+        margin: 5px 10px;
+    }
+
+    #bottom-challenges-sent {
+        height: 520px;
+    }
+
+    #challenges-received-list {
+        height: 520px;
+    }
+
+    .challenge-sent-container p {
+        font-size: 14px;
+    }
+
+    .sent-button {
+        width: 55px;
+        height: 25px;
+        border-radius: 5px;
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    .edit-challenge-input {
+        width: 80px;
+        font-size: 16px;
+    }
+
+    .edit-challenge-word {
+        width: 100px;
+    }
+}
+
 #challenges-page-container {
     display: flex;
     flex-direction: column;
-    margin: 0 20%;
-    min-width: 950px;
 }
 
 #new-challenge-form {
@@ -34,11 +299,6 @@
     background-color: rgb(36, 29, 19);
 }
 
-#new-challenge-inputs input {
-    width: 100px;
-    margin: 0px 20px;
-}
-
 
 .challenge-error-div {
     display: flex;
@@ -52,14 +312,12 @@
 }
 
 #challenges-sent {
-    width: 50%;
     display: flex;
     flex-direction:column;
     background-image: linear-gradient(145deg, rgba(131, 207, 188) 0%, #97dae1af 100%);
 }
 
 #challenges-received {
-    width: 50%;
     background-image: linear-gradient(145deg, rgba(58, 58, 58) 0%, #717677af 100%);
 }
 
@@ -106,13 +364,9 @@
 
 .challenge-sent-container {
     display: flex;
-    margin: 10px 20px;
     border: 1px solid black;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 15px;
-    height: 100px;
-    min-width: 460px;
 }
 
 .status-play {
@@ -150,13 +404,9 @@
 
 .sent-button {
     border: 1px solid rgb(36, 29, 19);
-    width: 70px;
-    height: 30px;
-    border-radius: 5px;
     background-color: white;
-    font-size: 18px;
     transition: 0.2s;
-    margin-left: 10px;
+    text-align: center;
 }
 
 .sent-button:hover {
@@ -175,11 +425,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 150px;
-}
-
-.edit-challenge-input {
-    width: 100px;
 }
 
 .errors {
@@ -192,11 +437,9 @@
 }
 
 #bottom-challenges-sent {
-    height: 520px;
     overflow-y: scroll;
 }
 
 #challenges-received-list {
-    height: 520px;
     overflow-y: scroll;
 }

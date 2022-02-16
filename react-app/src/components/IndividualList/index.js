@@ -61,7 +61,7 @@ const IndividualList = ({ list }) => {
 
     return (
         <div className="list-container" id={`list-container-${list.id}`} onClick={openList}>
-            <div>
+            <div className="list-name-and-user">
                 <h3 className='list-name' id={`list-${list.name}`}>{list.name}</h3>
                 <h4 className="list-username">{list.username}</h4>
             </div>
