@@ -1,6 +1,7 @@
 @media screen and (max-width: 478px) {
     .lists-and-words {
         width: 100%;
+        height: 100%;
     }
 
     .list-name {
@@ -67,6 +68,8 @@
 @media screen and (min-width: 478px) and (max-width: 767px)  {
     .lists-and-words {
         width: 100%;
+        height: 100%;
+
     }
 
     .list-name {
@@ -134,6 +137,8 @@
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .lists-and-words {
         width: 100%;
+        height: 100%;
+
     }
 
     .list-name {
@@ -194,6 +199,7 @@
 @media screen and (min-width: 992px) {
     .lists-and-words {
         width: 100%;
+        height: 100%;
     }
 
     .list-name {

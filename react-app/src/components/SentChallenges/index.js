@@ -26,8 +26,10 @@ function SentChallenges({ challenge }) {
         <>
             <div id={`challenge-sent-${challenge.id}`} className='challenge-sent-container'>
                 <h3>{challenge.challengeeName}</h3>
-                <p>{challenge.word}</p>
-                <p>{challenge.status}</p>
+                <div className='challenge-word-and-status'>
+                    <p>{challenge.word}</p>
+                    <p>{challenge.status}</p>
+                </div>
                 <div className='sent-challenge-options'>
                     {challenge.status === 'Incomplete' && (
                         <>

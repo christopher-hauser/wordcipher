@@ -71,6 +71,26 @@
         width: 44px;
         font-size: 8px;
     }
+
+    #friend-points {
+        margin: 10px 0px;
+    }
+
+    #friends-username {
+        margin: 2px;
+        margin-top: 10px;
+    }
+
+    #selected-friend-pro-circle {
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+    }
+
+    #friend-wins {
+        font-size: 28px;
+        padding-top: 14px;
+    }
 }
 
 @media screen and (min-width: 479px) and (max-width: 767px) {
@@ -154,6 +174,26 @@
         width: 60px;
         font-size: 10px;
     }
+
+    #friends-username {
+        margin: 2px;
+        margin-top: 10px;
+    }
+
+    #friend-points {
+        margin: 10px 0px;
+    }
+
+    #selected-friend-pro-circle {
+        width: 100px;
+        height: 100px;
+        margin-top: 20px;
+    }
+
+    #friend-wins {
+        font-size: 28px;
+        padding-top: 14px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -235,6 +275,22 @@
         margin-bottom: 10px;
     }
 
+    #friends-username {
+        margin: 2px;
+        margin-top: 30px;
+    }
+
+
+    #selected-friend-pro-circle {
+        width: 100px;
+        height: 100px;
+        margin-top: 50px;
+    }
+
+    #friend-wins {
+        font-size: 28px;
+        padding-top: 28px;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -315,6 +371,23 @@
         margin: 20px 5px;
         font-size: 24px;
         font-weight: 300;
+    }
+
+    #friends-username {
+        margin: 2px;
+        margin-top: 50px;
+    }
+
+
+    #selected-friend-pro-circle {
+        width: 100px;
+        height: 100px;
+        margin-top: 50px;
+    }
+
+    #friend-wins {
+        font-size: 28px;
+        padding-top: 28px;
     }
 }
 
@@ -399,6 +472,7 @@
 .friend-container button {
     border: 1px solid black;
     transition: 0.5s;
+    background-color: white;
 }
 
 .friend-container button:hover {
@@ -439,6 +513,7 @@
     width: 75%;
     height: 100%;
     margin: 50px 0px;
+    padding: 25px 0px;
     border: 2px solid white;
 }
 
@@ -500,23 +575,18 @@
     color: white;
     border: 2px solid white;
     border-radius: 500px;
-    width: 100px;
-    height: 100px;
     background-color: rgba(52, 21, 228, 0.603);
-    margin-top: 50px;
 }
 
 #friends-username {
     font-size: 24px;
     font-family: 'Lora';
-    margin-top: 50px;
     color: white;
 }
 
 #selected-friend-body {
     display: flex;
     flex-direction: column;
-    padding-bottom: 25px;
     width: 100%;
 }
 
@@ -528,10 +598,8 @@
 }
 
 #friend-wins {
-    font-size: 28px;
     font-family: 'Lora';
     color: white;
-    padding-top: 28px;
     margin: 0 0;
 }
 

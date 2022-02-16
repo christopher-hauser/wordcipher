@@ -6,19 +6,21 @@
         margin: 0px 10px;
     }
 
-    #guess-letter-container {
-        width: 600px;
-    }
-
     .guess-word {
-        width: 400px;
+        width: 350px;
     }
 
     #game-container {
-        min-width: 375px;
+        min-width: 325px;
         padding-right: 0.5em;
-        padding-left: 2em;
+        padding-left: 0em;
         padding-top: 0.5em;
+    }
+
+    .active-guess-button {
+        width: 45px;
+        height: 25px;
+        font-size: 12px;
     }
 }
 
@@ -44,6 +46,12 @@
         padding-left: 2em;
         padding-top: 2em;
     }
+
+    .active-guess-button {
+        width: 50px;
+        height: 28px;
+        font-size: 14px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -62,6 +70,12 @@
         width: 50%;
         padding-right: 4em;
         padding-left: 4em;
+    }
+
+    .active-guess-button {
+        width: 50px;
+        height: 28px;
+        font-size: 14px;
     }
 }
 
@@ -85,6 +99,12 @@
 
     #guess-letter-container {
         min-width: 525px;
+    }
+
+    .active-guess-button {
+        width: 60px;
+        height: 30px;
+        font-size: 16px;
     }
 }
 
@@ -130,11 +150,8 @@
     justify-content: center;
     align-items: center;
     border: 1px solid rgb(36, 29, 19);
-    width: 60px;
-    height: 30px;
     border-radius: 5px;
     background-color: white;
-    font-size: 16px;
     transition: 0.2s;
 }
 

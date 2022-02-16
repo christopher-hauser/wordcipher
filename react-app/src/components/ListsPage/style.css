@@ -58,6 +58,7 @@
 
     .top-of-player-lists {
         height: 100px;
+        min-height: 100px;
     }
 
     #top-of-words {
@@ -127,6 +128,7 @@
 
     .top-of-player-lists {
         height: 100px;
+        min-height: 100px;
     }
 
     #top-of-words {
@@ -188,6 +190,7 @@
 
     .top-of-player-lists {
         height: 120px;
+        min-height: 120px;
     }
 
     #top-of-words {
@@ -243,6 +246,7 @@
 
     .top-of-player-lists {
         height: 120px;
+        min-height: 120px;
     }
 
     #top-of-words {
@@ -253,6 +257,7 @@
 .list-page-container {
     display: flex;
     flex-direction: column;
+    height: 90%;
 }
 
 #list-background-image-container {
@@ -295,14 +300,14 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    height: 80%;
+    height: 100%;
     transition: 0.2s;
     overflow-y: scroll;
-    padding-left: 5px;
+    padding-left: 0px;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 1px;
   }
 
 #browse-list-title {
