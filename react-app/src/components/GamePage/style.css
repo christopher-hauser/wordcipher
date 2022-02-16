@@ -1,7 +1,8 @@
 @media screen and (max-width: 478px) {
     #game-page-container {
         flex-direction: column-reverse;
-        min-width: 375px;
+        min-width: 320px;
+        max-width: 478px;
     }
 
     #inner-instructions-container {

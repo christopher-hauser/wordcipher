@@ -1,13 +1,13 @@
 @media screen and (max-width: 478px) {
     .guess-letter {
-        width: 30px;
-        height: 30px;
+        width: 26px;
+        height: 32px;
         font-size: 20px;
         margin: 0px 5px;
     }
 
     .guess-word {
-        min-width: 300px;
+        min-width: 275px;
         justify-content: space-between;
     }
 
@@ -23,10 +23,10 @@
     }
 
     .active-guess-button {
-        width: 45px;
+        width: 40px;
         height: 25px;
-        font-size: 12px;
-        margin-left: 10px;
+        font-size: 10px;
+        margin-left: 5px;
     }
 }
 
