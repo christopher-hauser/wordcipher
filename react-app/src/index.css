@@ -33,6 +33,15 @@
     #user-list-container {
         margin: 0% 5%;
     }
+
+    #logged-out-nav-right {
+        position: absolute;
+        right: 5%;
+        top: 1.75em;
+        display: flex;
+        justify-content: space-between;
+        width: 30%;
+    }
 }
 
 @media screen and (min-width: 479px) and (max-width: 767px) {
@@ -70,6 +79,15 @@
     #user-list-container {
         margin: 0% 5%;
     }
+
+    #logged-out-nav-right {
+        position: absolute;
+        right: 5%;
+        top: 1.75em;
+        display: flex;
+        justify-content: space-between;
+        width: 200px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -106,6 +124,15 @@
     #user-list-container {
         margin: 0% 10%;
     }
+
+    #logged-out-nav-right {
+        position: absolute;
+        right: 5%;
+        top: 1.75em;
+        display: flex;
+        justify-content: space-between;
+        width: 200px;
+    }
 }
 
 @media screen and (min-width: 992px) {
@@ -140,6 +167,15 @@
     #user-list-container {
         margin: 0% 10%;
     }
+
+    #logged-out-nav-right {
+        position: absolute;
+        right: 5%;
+        top: 1.75em;
+        display: flex;
+        justify-content: space-between;
+        width: 200px;
+    }
 }
 
 html, body {
@@ -169,7 +205,7 @@ html, body {
     background-color: rgb(61, 61, 61);
     border-bottom: solid 3px white;
     width: 100%;
-    height: 80px;
+    height: 10%;
 }
 
 #nav-links {
@@ -205,15 +241,6 @@ html, body {
 #nav-right {
     display: flex;
     justify-content: space-between;
-}
-
-#logged-out-nav-right {
-    position: absolute;
-    right: 5%;
-    top: 1.75em;
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
 }
 
 #logged-in-nav-right {
