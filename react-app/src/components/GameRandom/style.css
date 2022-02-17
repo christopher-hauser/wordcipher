@@ -31,13 +31,15 @@
     }
 
     .keyboard-letter {
-        font-size: 14px;
+        font-size: 22px;
         padding: 5px;
     }
 
     #letters-keyboard {
         margin-top: 15px;
         margin-right: 10px;
+        height: 300px;
+        justify-content: flex-start;
     }
 }
 
@@ -63,7 +65,7 @@
         padding-right: 0.5em;
         padding-left: 0.5em;
         padding-top: 0.5em;
-        margin-left: 1.5em;
+        margin-left: 0em;
     }
 
     .active-guess-button {
@@ -74,13 +76,15 @@
     }
 
     .keyboard-letter {
-        font-size: 14px;
+        font-size: 22px;
         padding: 5px;
     }
 
     #letters-keyboard {
         margin-top: 15px;
         margin-right: 10px;
+        height: 300px;
+        justify-content: flex-start;
     }
 }
 
@@ -115,6 +119,7 @@
 
     #letters-keyboard {
         margin-top: 50px;
+        justify-content: center;
     }
 }
 
@@ -153,6 +158,7 @@
 
     #letters-keyboard {
         margin-top: 50px;
+        justify-content: center;
     }
 }
 
@@ -241,7 +247,6 @@
 #letters-keyboard {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
 
