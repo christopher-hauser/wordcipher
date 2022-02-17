@@ -153,6 +153,7 @@ function GameRandom() {
         const nextSubmitButton = document.querySelector(`button[name='submit-${parseInt(guessNumber) + 1}']`)
         const value = letterBlock.value;
         const thisLetterInKeyboard = document.querySelector(`div[id='${value}']`)
+
         if (value === actual_word[parseInt(letterPosition) - 1]) {
             letterBlock.classList.add('green');
             if (thisLetterInKeyboard.classList.contains('yellow-letter')) {
@@ -164,7 +165,11 @@ function GameRandom() {
 
         } else if (actual_word.includes(value) && value !== actual_word[parseInt(letterPosition) - 1]) {
             letterBlock.classList.add('yellow');
-            thisLetterInKeyboard.classList.add('yellow-letter')
+
+            if (!thisLetterInKeyboard.classList.contains('green-letter')) {
+                thisLetterInKeyboard.classList.add('yellow-letter')
+            }
+
         } else {
             letterBlock.classList.add('gray');
             thisLetterInKeyboard.classList.add('gray-letter')
@@ -517,13 +522,13 @@ function GameRandom() {
                     <div id='L' className="keyboard-letter">L</div>
                 </div>
                 <div id='bottom-row'>
-                    <div id='Z'className="keyboard-letter">Z</div>
-                    <div id='X'className="keyboard-letter">X</div>
-                    <div id='C'className="keyboard-letter">C</div>
-                    <div id='V'className="keyboard-letter">V</div>
-                    <div id='B'className="keyboard-letter">B</div>
-                    <div id='N'className="keyboard-letter">N</div>
-                    <div id='M'className="keyboard-letter">M</div>
+                    <div id='Z' className="keyboard-letter">Z</div>
+                    <div id='X' className="keyboard-letter">X</div>
+                    <div id='C' className="keyboard-letter">C</div>
+                    <div id='V' className="keyboard-letter">V</div>
+                    <div id='B' className="keyboard-letter">B</div>
+                    <div id='N' className="keyboard-letter">N</div>
+                    <div id='M' className="keyboard-letter">M</div>
                 </div>
             </div>
 
