@@ -7,12 +7,13 @@
     }
 
     .guess-word {
-        min-width: 275px;
+        min-width: 250px;
         justify-content: space-between;
     }
 
-    .guess-letter-cotainer {
-        padding-right: 100px;
+    .guess-letter-container {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     #game-container {
@@ -38,20 +39,21 @@
         margin: 0px 2px;
     }
 
-    #guess-letter-container {
-        padding-right: 100px;
+    .guess-letter-container {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     .guess-word {
-        width: 300px;
+        min-width: 260px;
     }
 
     #game-container {
         min-width: 325px;
         padding-right: 0.5em;
-        padding-left: 2em;
+        padding-left: 0.5em;
         padding-top: 0.5em;
-        margin-left: 2.5em;
+        margin-left: 1.5em;
     }
 
     .active-guess-button {
