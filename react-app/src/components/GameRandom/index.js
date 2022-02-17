@@ -152,12 +152,22 @@ function GameRandom() {
         const thisSubmitButton = document.querySelector(`button[name='submit-${guessNumber}']`)
         const nextSubmitButton = document.querySelector(`button[name='submit-${parseInt(guessNumber) + 1}']`)
         const value = letterBlock.value;
+        const thisLetterInKeyboard = document.querySelector(`div[id='${value}']`)
         if (value === actual_word[parseInt(letterPosition) - 1]) {
             letterBlock.classList.add('green');
+            if (thisLetterInKeyboard.classList.contains('yellow-letter')) {
+                thisLetterInKeyboard.classList.remove('yellow-letter')
+                thisLetterInKeyboard.classList.add('green-letter')
+            } else {
+                thisLetterInKeyboard.classList.add('green-letter')
+            }
+
         } else if (actual_word.includes(value) && value !== actual_word[parseInt(letterPosition) - 1]) {
             letterBlock.classList.add('yellow');
+            thisLetterInKeyboard.classList.add('yellow-letter')
         } else {
             letterBlock.classList.add('gray');
+            thisLetterInKeyboard.classList.add('gray-letter')
         }
         letterBlock.disabled = true;
         thisSubmitButton.className = 'disabled-button'
@@ -482,6 +492,41 @@ function GameRandom() {
                 <input name='6-5' className='guess-letter' id='6-5' onChange={handleChange} type='text' maxLength='1'></input>
                 <button className="disabled-button" name='submit-6'>Guess!</button>
             </form>
+            <div id='letters-keyboard'>
+                <div id='top-row'>
+                    <div id='Q' className="keyboard-letter">Q</div>
+                    <div id='W' className="keyboard-letter">W</div>
+                    <div id='E' className="keyboard-letter">E</div>
+                    <div id='R' className="keyboard-letter">R</div>
+                    <div id='T' className="keyboard-letter">T</div>
+                    <div id='Y' className="keyboard-letter">Y</div>
+                    <div id='U' className="keyboard-letter">U</div>
+                    <div id='I' className="keyboard-letter">I</div>
+                    <div id='O' className="keyboard-letter">O</div>
+                    <div id='P' className="keyboard-letter">P</div>
+                </div>
+                <div id='middle-row'>
+                    <div id='A' className="keyboard-letter">A</div>
+                    <div id='S' className="keyboard-letter">S</div>
+                    <div id='D' className="keyboard-letter">D</div>
+                    <div id='F' className="keyboard-letter">F</div>
+                    <div id='G' className="keyboard-letter">G</div>
+                    <div id='H' className="keyboard-letter">H</div>
+                    <div id='J' className="keyboard-letter">J</div>
+                    <div id='K' className="keyboard-letter">K</div>
+                    <div id='L' className="keyboard-letter">L</div>
+                </div>
+                <div id='bottom-row'>
+                    <div id='Z'className="keyboard-letter">Z</div>
+                    <div id='X'className="keyboard-letter">X</div>
+                    <div id='C'className="keyboard-letter">C</div>
+                    <div id='V'className="keyboard-letter">V</div>
+                    <div id='B'className="keyboard-letter">B</div>
+                    <div id='N'className="keyboard-letter">N</div>
+                    <div id='M'className="keyboard-letter">M</div>
+                </div>
+            </div>
+
             {showModal && (
                 <Modal onClose={() => setShowModal(false)}>
                     <WinPopup points={points} attempts={attempts} />

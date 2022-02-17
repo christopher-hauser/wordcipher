@@ -29,6 +29,16 @@
         font-size: 10px;
         margin-left: 5px;
     }
+
+    .keyboard-letter {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    #letters-keyboard {
+        margin-top: 15px;
+        margin-right: 10px;
+    }
 }
 
 @media screen and (min-width: 479px) and (max-width: 767px) {
@@ -62,6 +72,16 @@
         font-size: 10px;
         margin-left: 5px;
     }
+
+    .keyboard-letter {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    #letters-keyboard {
+        margin-top: 15px;
+        margin-right: 10px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -86,6 +106,15 @@
         width: 50px;
         height: 28px;
         font-size: 14px;
+    }
+
+    .keyboard-letter {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    #letters-keyboard {
+        margin-top: 50px;
     }
 }
 
@@ -116,6 +145,15 @@
         height: 30px;
         font-size: 16px;
     }
+
+    .keyboard-letter {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    #letters-keyboard {
+        margin-top: 50px;
+    }
 }
 
 #game-container {
@@ -143,9 +181,18 @@
     text-align: center;
 }
 
+.keyboard-letter {
+    color: black;
+    font-weight: 700;
+}
+
 .green {
     background: rgb(10, 175, 112);
     color: white;
+}
+
+.green-letter {
+    color: rgb(10, 175, 112);
 }
 
 .yellow {
@@ -154,9 +201,17 @@
     color: white;
 }
 
+.yellow-letter {
+    color:rgb(182, 155, 37);
+}
+
 .gray {
     background: rgb(66, 62, 62);
     color: white;
+}
+
+.gray-letter {
+    color: rgb(177, 165, 165);
 }
 
 .active-guess-button {
@@ -181,4 +236,23 @@
 
 .guess-button-container {
     width: 15%;
+}
+
+#letters-keyboard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#top-row {
+    display: flex;
+}
+
+#middle-row {
+    display: flex;
+}
+
+#bottom-row {
+    display: flex;
 }
