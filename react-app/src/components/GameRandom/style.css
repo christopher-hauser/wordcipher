@@ -32,10 +32,10 @@
 
 @media screen and (min-width: 479px) and (max-width: 767px) {
     .guess-letter {
-        width: 40px;
-        height: 40px;
-        font-size: 30px;
-        margin: 0px 5px;
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        margin: 0px 2px;
     }
 
     #guess-letter-container {
@@ -43,7 +43,7 @@
     }
 
     .guess-word {
-        width: 400px;
+        width: 300px;
     }
 
     #game-container {
