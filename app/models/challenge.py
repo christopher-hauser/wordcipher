@@ -7,8 +7,8 @@ class Challenge(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    challengerId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
-    recipientId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    challengerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    recipientId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
     word = db.Column(db.String(5), nullable=False)
     status = db.Column(db.String(55), nullable=False)
 
