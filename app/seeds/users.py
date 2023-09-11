@@ -25,7 +25,7 @@ def seed_users():
 # dependent entities
 def undo_users():
     if environment == "production":
-        db.session.execute(f"TRUNCATE table {SCHEMA}.categories RESTART IDENTITY CASCADE;")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.users RESTART IDENTITY CASCADE;")
     else:
         db.session.execute(f"TRUNCATE table users RESTART IDENTITY CASCADE;")
 
