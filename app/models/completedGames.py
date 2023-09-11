@@ -7,8 +7,8 @@ class CompletedGame(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, add_prefix_for_prod(db.ForeignKey("users.id")), nullable=False)
-    challengerId = db.Column(db.Integer, add_prefix_for_prod(db.ForeignKey("users.id")))
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
+    challengerId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     word = db.Column(db.String(5), nullable=False)
     attempts = db.Column(db.Integer, nullable=False)
     win = db.Column(db.Boolean, nullable=False)
