@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
 friends = db.Table(
-    "friends",
+    add_prefix_for_prod("friends"),
     db.Column("friender_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))),
     db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 )
