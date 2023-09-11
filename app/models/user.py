@@ -9,7 +9,7 @@ class Friend(db.Model):
     if environment == "production":
         __table_args__ = {'schema': SCHEMA}
 
-    id = db.Column(db.Integer, primary_key=True),
+    id = db.Column(db.Integer, primary_key=True)
     friender_id = db.Column("friender_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     friendee_id = db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
 
