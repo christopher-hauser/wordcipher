@@ -2,16 +2,11 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
-
-class Friend(db.Model):
-    __tablename__ = 'friends'
-
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
-
-    id = db.Column(db.Integer, primary_key=True)
-    friender_id = db.Column("friender_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    friendee_id = db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+friends = db.Table(
+    "friends",
+    db.Column("friender_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))),
+    db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+)
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -34,9 +29,9 @@ class User(db.Model, UserMixin):
 
     received_friends = db.relationship(
     "User",
-    secondary="Friend",
-    primaryjoin=(Friend.friender_id == id),
-    secondaryjoin=(Friend.friendee_id == id),
+    secondary=friends,
+    primaryjoin=(friends.c.friender_id == id),
+    secondaryjoin=(friends.c.friendee_id == id),
     backref=db.backref("friended", lazy="dynamic"),
     lazy="dynamic"
     )
