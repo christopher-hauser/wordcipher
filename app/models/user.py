@@ -5,7 +5,8 @@ from flask_login import UserMixin
 friends = db.Table(
     "friends",
     db.Column("friender_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))),
-    db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    db.Column("friendee_id", db.Integer, db.ForeignKey(add_prefix_for_prod("users.id"))),
+    schema=SCHEMA
 )
 
 class User(db.Model, UserMixin):
