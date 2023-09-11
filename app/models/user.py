@@ -34,7 +34,7 @@ class User(db.Model, UserMixin):
 
     received_friends = db.relationship(
     "User",
-    secondary=Friend,
+    secondary="Friend",
     primaryjoin=(Friend.friender_id == id),
     secondaryjoin=(Friend.friendee_id == id),
     backref=db.backref("friended", lazy="dynamic"),
