@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import challenges, { deleteThisChallenge, getAllMyChallenges } from '../../store/challenges';
+import { deleteThisChallenge, getAllMyChallenges } from '../../store/challenges';
 import EditChallengeForm from '../EditChallengeForm';
 
 

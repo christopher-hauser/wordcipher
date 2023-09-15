@@ -136,7 +136,7 @@ export const deleteOneWord = word => async dispatch => {
 
 const initialState = {'lists': [], 'selected_list': {}}
 
-export default function (state = initialState, action) {
+export default function reducer(state = initialState, action) {
     let newState;
     let index;
     switch (action.type) {

@@ -17,7 +17,7 @@ const WinPopup = ({ points, attempts }) => {
         <div id='win-container'>
             <div id='win-inner-container'>
                 <h2 id='congratulations'>Congratulations!</h2>
-                {attempts == 1 && (
+                {attempts === 1 && (
                 <p id='win-attempts'>You guessed the word in {attempts} attempt.</p>
                 )}
                 {attempts > 1 && (

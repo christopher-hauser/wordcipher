@@ -15,6 +15,20 @@ function FriendsPage() {
     // const [selectedFriend, setSelectedFriend] = useState('')
 
     useEffect(async () => {
+        const loadFriendRequests = async (id) => {
+            const data = await fetch(`/api/friends/${id}/friend-requests`).then(res => {
+                return res.json();
+            })
+            return data
+        }
+
+        const loadFriends = async (id) => {
+            const data = await fetch(`/api/friends/${id}`).then(res => {
+                return res.json();
+            })
+            return data;
+        }
+
         const incRequests = await loadFriendRequests(user.id)
         const requests = incRequests.requests
         setFriendRequests(requests)
@@ -22,21 +36,7 @@ function FriendsPage() {
         const myFriendsObj = await loadFriends(user.id);
         const myFriends = myFriendsObj.friends
         setFriends(myFriends)
-    }, [])
-
-    const loadFriendRequests = async (id) => {
-        const data = await fetch(`/api/friends/${id}/friend-requests`).then(res => {
-            return res.json();
-        })
-        return data
-    }
-
-    const loadFriends = async (id) => {
-        const data = await fetch(`/api/friends/${id}`).then(res => {
-            return res.json();
-        })
-        return data;
-    }
+    }, [user.id])
 
     const selectFriend = async e => {
         let previousSelectedFriend;
@@ -45,7 +45,7 @@ function FriendsPage() {
         }
 
         const friendId = e.target.id.split('-')[1];
-        const friend = friends.find(friend => friend.id == friendId);
+        const friend = friends.find(friend => friend.id === friendId);
         const friendGot = await dispatch(getOneFriend(friend))
 
         if (friendGot) {
@@ -55,8 +55,6 @@ function FriendsPage() {
             document.getElementById(`friend-${friendGot.id}`).className = 'friend-selected';
         }
     }
-
-
 
     return (
         <>
@@ -70,7 +68,7 @@ function FriendsPage() {
                             <div id='friends-blocks-container'>
                                 <h2 id='friends-title'>FRIENDS</h2>
                                 {friends.map(friend => (
-                                    <div onClick={selectFriend} className='friend-container' id={`friend-${friend.id}`}>
+                                    <div onClick={selectFriend} className='friend-container' id={`friend-${friend.id}`} key={`friend-${friend.id}`}>
                                         <FriendBlock friend={friend} />
                                     </div>
                                 ))}

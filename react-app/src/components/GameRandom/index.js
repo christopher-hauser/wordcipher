@@ -117,7 +117,7 @@ function GameRandom() {
                                 return;
                             }
                         }
-                    } else if (fieldLetter == 1) {
+                    } else if (fieldLetter === 1) {
                         if (e.key === "Backspace" || e.key === "Delete") {
                             if (thisLetter.value) {
                                 thisLetter.value = '_';
@@ -244,7 +244,7 @@ function GameRandom() {
         }
 
         // IF LOSE
-        if (guessed_word !== actual_word && attemptNo == 6) {
+        if (guessed_word !== actual_word && attemptNo === 6) {
             setShowLoseModal(true);
 
             const win = false;

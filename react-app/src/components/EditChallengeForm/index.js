@@ -1,6 +1,6 @@
 import React, {  useState } from "react"
 import { useSelector, useDispatch } from 'react-redux';
-import { editThisChallenge, getAllMyChallenges, sendNewChallenge } from "../../store/challenges";
+import { editThisChallenge, getAllMyChallenges } from "../../store/challenges";
 
 const EditChallengeForm = ({ challenge, editState, sendDataToParent }) => {
     const [errors, setErrors] = useState([])

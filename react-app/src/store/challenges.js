@@ -100,7 +100,7 @@ export const sendNewChallenge = challenge => async dispatch => {
 
   const initialState = {'challenges': {}, 'myChallenges': {}}
 
-  export default function (state = initialState, action) {
+  export default function reducer(state = initialState, action) {
       let newState;
       let index;
       switch (action.type) {

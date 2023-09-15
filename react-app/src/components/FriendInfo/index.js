@@ -1,9 +1,6 @@
 import React from 'react';
-import {useDispatch} from 'react-redux'
 
 function FriendInfo({ friend }) {
-    const dispatch = useDispatch();
-
     return (
         <>
             <div className='friend-info'>

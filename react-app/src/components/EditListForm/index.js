@@ -1,9 +1,8 @@
 import React, { useState } from "react"
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { editThisList, getAllLists } from "../../store/lists";
 
 const EditListForm = ({ list, editState, sendDataToParent }) => {
-    const user = useSelector(state => state.session.user)
     const [editOpen, setEditOpen] = useState(editState);
     const [errors, setErrors] = useState([]);
     const [name, setName] = useState('');

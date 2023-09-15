@@ -15,7 +15,7 @@ function ChallengesPage() {
     useEffect(() => {
         dispatch(getAllChallenges(user.id))
         dispatch(getAllMyChallenges(user.id))
-    }, [dispatch])
+    }, [dispatch, user.id])
 
     return (
         <>

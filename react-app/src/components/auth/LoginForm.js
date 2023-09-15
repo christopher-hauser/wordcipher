@@ -17,7 +17,7 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password))
     if (data.errors) {
       let capitalErrors = [];
-      data.errors.map(error => {
+      data.errors.forEach(error => {
         const error_split = error.split(':');
         const cap_error = error.split(':')[0].toUpperCase();
         capitalErrors.push(`${cap_error}:${error_split[1]}`)
@@ -29,7 +29,7 @@ const LoginForm = () => {
 
   const demoLogin = async e => {
     e.preventDefault();
-    const data = await dispatch(login('demo@aa.io', 'password'))
+    await dispatch(login('demo@aa.io', 'password'))
   }
 
   const updateEmail = (e) => {
