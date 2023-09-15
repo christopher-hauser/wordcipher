@@ -12,7 +12,6 @@ function FriendsPage() {
     const [friends, setFriends] = useState([])
     const [friendRequests, setFriendRequests] = useState([])
     const selectedFriend = useSelector(state => state.session.selected_user)
-    // const [selectedFriend, setSelectedFriend] = useState('')
 
     useEffect(async () => {
         const loadFriendRequests = async (id) => {
@@ -45,7 +44,7 @@ function FriendsPage() {
         }
 
         const friendId = e.target.id.split('-')[1];
-        const friend = friends.find(friend => friend.id === friendId);
+        const friend = friends.find(friend => friend.id == friendId); // Must use '==' due to type conversion
         const friendGot = await dispatch(getOneFriend(friend))
 
         if (friendGot) {
